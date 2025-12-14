@@ -1,0 +1,3021 @@
+ success, WindUI =
+    pcall(
+    function()
+        return loadstring(game:HttpGet("https://github.com/Footagesus/WindUI/releases/latest/download/main.lua"))()
+    end
+)
+if not success or not WindUI then
+    warn("failed to load WindUI")
+    return
+end
+
+themeNames = {
+    "Ocean Blue",
+    "Forest Green",
+    "Minimal Light",
+    "Retro Purple",
+    "Sunset",
+    "Neon Pulse",
+    "Steel Phantom",
+    "Vaporwave",
+    "Deep Sea",
+    "Sepia Warmth",
+    "Monokai Dark",
+    "Solarized Light",
+    "Cherry Blossom",
+    "Charcoal Gold",
+    "Icy Mint",
+    "Volcano",
+    "Amethyst",
+   if "Pastel Dream",
+    "Coffee Shop",
+    "Cyberpunk Red"
+}
+
+themeColors = {
+    ["Ocean Blue"] = {
+        Accent = "#0B5394",
+        Dialog = "#0A3D6B",
+        Outline = "#6DACEA",
+         Text = "#EBF5FF",
+        Placeholder = "#85AECF",
+        Background = "#051A2E",
+        Button = "#1C67A8",
+        Icon = "#A9D5FD"
+    },
+    ["Forest Green"] = {
+        Accent = "#1A5E2E",
+        Dialog = "#114220",
+        Outline = "#8AC79B",
+        Text = "#E9FCE9",
+        Placeholder = "#79A378",
+        Background = "#0A2B14",
+        Button = "#2B7A42",
+        Icon = "#B3E3C1"
+    },
+    ["Minimal Light"] = {
+        Accent = "#F3F4F6",
+        Dialog = "#FFFFFF",
+        Outline = "#4B5563",
+        Text = "#1F2937",
+        Placeholder = "#9CA3AF",
+        Background = "#F9FAFB",
+        Button = "#E5E7EB",
+        Icon = "#4B5563"
+    },
+    ["Retro Purple"] = {
+        Accent = "#7E22CE",
+        Dialog = "#4A148C",
+        Outline = "#F0ABFC",
+        Text = "#FDF4FF",
+        Placeholder = "#BC8FDD",
+        Background = "#2D0557",
+        Button = "#9333EA",
+        Icon = "#F0ABFC"
+    },
+    ["Sunset"] = {
+        Accent = "#FF8847",
+        Dialog = "#CC5500",
+        Outline = "#FFD9C0",
+        Text = "#FFF7F0",
+        Placeholder = "#FFC099",
+        Background = "#331A00",
+        Button = "#FF7043",
+        Icon = "#FFD9C0"
+    },
+    ["Neon Pulse"] = {
+        Accent = "#00FF00",
+        Dialog = "#111111",
+        Outline = "#00FFFF",
+        Text = "#FFFFFF",
+        Placeholder = "#008800",
+        Background = "#000000",
+        Button = "#39FF14",
+        Icon = "#00FFFF"
+    },
+    ["Steel Phantom"] = {
+        Accent = "#404040",
+        Dialog = "#262626",
+        Outline = "#A3A3A3",
+        Text = "#D4D4D4",
+        Placeholder = "#737373",
+        Background = "#171717",
+        Button = "#525252",
+        Icon = "#A3A3A3"
+    },
+    ["Vaporwave"] = {
+        Accent = "#FF00FF",
+        Dialog = "#1B001B",
+        Outline = "#00FFFF",
+        Text = "#FFFFFF",
+        Placeholder = "#FF69FF",
+        Background = "#0A0014",
+        Button = "#E75480",
+        Icon = "#00FFFF"
+    },
+    ["Deep Sea"] = {
+        Accent = "#008B8B",
+        Dialog = "#005A5A",
+        Outline = "#80CBC4",
+        Text = "#E0FFFF",
+        Placeholder = "#4DB6AC",
+        Background = "#003636",
+        Button = "#00A3A3",
+        Icon = "#80CBC4"
+    },
+    ["Sepia Warmth"] = {
+        Accent = "#7B3F00",
+        Dialog = "#5C3200",
+        Outline = "#D2B48C",
+        Text = "#F5E8D6",
+        Placeholder = "#A98F70",
+        Background = "#3D291F",
+        Button = "#9D5B18",
+        Icon = "#D2B48C"
+    },
+    ["Monokai Dark"] = {
+        Accent = "#F92672",
+        Dialog = "#272822",
+        Outline = "#66D9EF",
+        Text = "#F8F8F2",
+        Placeholder = "#75715E",
+        Background = "#1C1E1A",
+        Button = "#A6E22E",
+        Icon = "#66D9EF"
+    },
+    ["Solarized Light"] = {
+        Accent = "#268BD2",
+        Dialog = "#FDF6E3",
+        Outline = "#93A1A1",
+        Text = "#586E75",
+        Placeholder = "#839496",
+        Background = "#EEE8D5",
+        Button = "#B58900",
+        Icon = "#268BD2"
+    },
+    ["Cherry Blossom"] = {
+        Accent = "#F9BCCB",
+        Dialog = "#FFFAFD",
+        Outline = "#D96985",
+        Text = "#4A1429",
+        Placeholder = "#C397A3",
+        Background = "#FFF7F9",
+        Button = "#E68A9F",
+        Icon = "#D96985"
+    },
+    ["Charcoal Gold"] = {
+        Accent = "#FFD700",
+        Dialog = "#2C2C2C",
+        Outline = "#C0C0C0",
+        Text = "#F5F5F5",
+        Placeholder = "#6E6E6E",
+        Background = "#1D1D1D",
+        Button = "#B8860B",
+        Icon = "#FFD700"
+    },
+    ["Icy Mint"] = {
+        Accent = "#40E0D0",
+        Dialog = "#F0FFFF",
+        Outline = "#81D4FA",
+        Text = "#004D40",
+        Placeholder = "#B2DFDB",
+        Background = "#E0FFFF",
+        Button = "#80CBC4",
+        Icon = "#40E0D0"
+    },
+    ["Volcano"] = {
+        Accent = "#B22222",
+        Dialog = "#1C1C1C",
+        Outline = "#FF6347",
+        Text = "#EBEBEB",
+        Placeholder = "#704747",
+        Background = "#0A0A0A",
+        Button = "#FF4500",
+        Icon = "#FF6347"
+    },
+    ["Amethyst"] = {
+        Accent = "#9966CC",
+        Dialog = "#36284C",
+        Outline = "#CCFF66",
+        Text = "#EDE9F2",
+        Placeholder = "#8A72A4",
+        Background = "#221A33",
+        Button = "#7A52AA",
+        Icon = "#CCFF66"
+    },
+    ["Pastel Dream"] = {
+        Accent = "#FFB3BA",
+        Dialog = "#FAF3E0",
+        Outline = "#BAE1FF",
+        Text = "#333333",
+        Placeholder = "#C1B4A5",
+        Background = "#FFFFFF",
+        Button = "#BAE1FF",
+        Icon = "#FFB3BA"
+    },
+    ["Coffee Shop"] = {
+        Accent = "#795548",
+        Dialog = "#F5F5DC",
+        Outline = "#A1887F",
+        Text = "#3E2723",
+        Placeholder = "#BCB0A4",
+        Background = "#FFF8E1",
+        Button = "#D7CCC8",
+        Icon = "#795548"
+    },
+    ["Cyberpunk Red"] = {
+        Accent = "#FF3333",
+        Dialog = "#080008",
+        Outline = "#33FFFF",
+        Text = "#FDFDFD",
+        Placeholder = "#771111",
+        Background = "#000000",
+        Button = "#CC0000",
+        Icon = "#33FFFF"
+    }
+}
+
+for name, colors in pairs(themeColors) do
+    WindUI:AddTheme(
+        {
+            Name = name,
+            Accent = Color3.fromHex(colors.Accent),
+            Dialog = Color3.fromHex(colors.Dialog),
+            Outline = Color3.fromHex(colors.Outline),
+            Text = Color3.fromHex(colors.Text),
+            Placeholder = Color3.fromHex(colors.Placeholder),
+            Background = Color3.fromHex(colors.Background),
+            Button = Color3.fromHex(colors.Button),
+            Icon = Color3.fromHex(colors.Icon)
+        }
+    )
+end
+
+WindUI:SetTheme("Volcano") -- main color/default color
+
+ function GradientText(text, color1, color2)
+     result = ""
+    for i = 1, #text do
+         t = (i - 1) / (#text - 1)
+         r = color1.R + (color2.R - color1.R) * t
+         g = color1.G + (color2.G - color1.G) * t
+         b = color1.B + (color2.B - color1.B) * t
+         hex = string.format("#%02X%02X%02X", r * 255, g * 255, b * 255)
+        result = result .. string.format('<font color="%s">%s</font>', hex, text:sub(i, i))
+    end
+    return result
+end
+
+ Window =
+    WindUI:CreateWindow(
+    {
+        Title = "RyZen Hub",
+        Icon = "rbxassetid://84501312005643",
+        IconThemed = true,
+        Author = "By @mallo",
+        Size = UDim2.fromOffset(580, 460),
+        Resizable = true,
+        Transparent = true,
+        User = {
+            Enabled = true,
+            Anonymous = False,
+            Callback = function()
+                print("clicked")
+            end
+        }
+    }
+)
+
+Window:Tag(
+    {
+        Title = "Mode: Developer",
+        Color = Color3.fromHex("#30ff6a"),
+        Radius = 10 -- from 0 to 13
+    }
+)
+
+Window:Tag(
+    {
+        Title = "v1 MainGui",
+        Color = Color3.fromHex("#30ff6a"),
+        Radius = 10 -- from 0 to 13
+    }
+)
+
+Window:SetIconSize(50) -- default is 20
+
+Window:EditOpenButton(
+    {
+        Title = "RyZen Hub",
+        Icon = "rbxassetid://84501312005643",
+        CornerRadius = UDim.new(0, 16),
+        StrokeThickness = 2,
+        Color = ColorSequence.new(Color3.fromHex("ADD8E6"), Color3.fromHex("00008B")), -- gradient
+        OnlyMobile = false,
+        Enabled = true,
+        Draggable = true
+    }
+)
+
+Window:DisableTopbarButtons({"Close"})
+
+ Info = Window:Tab({Title = "Information", Icon = "info"})
+
+ InviteCode = "KG9ADqwT9Q" -- change to your discord invite
+ DiscordAPI = "https://discord.com/api/v10/invites/" .. InviteCode .. "?with_counts=true&with_expiration=true"
+
+ Response
+ ErrorMessage = nil
+
+xpcall(
+    function()
+        Response =
+            game:GetService("HttpService"):JSONDecode(
+            WindUI.Creator.Request(
+                {
+                    Url = DiscordAPI,
+                    Method = "GET",
+                    Headers = {
+                        ["Accept"] = "application/json"
+                    }
+                }
+            ).Body
+        )
+    end,
+    function(err)
+        warn("err fetching discord info: " .. tostring(err))
+        ErrorMessage = tostring(err)
+        Response = nil
+    end
+)
+
+if Response and Response.guild then
+     ParagraphConfig = {
+        Title = Response.guild.name,
+        Desc = ' <font color="#52525b">•</font> Member Count: ' ..
+            tostring(Response.approximate_member_count) ..
+                '\n <font color="#16a34a">•</font> Online Count: ' .. tostring(Response.approximate_presence_count),
+        Image = "https://cdn.discordapp.com/icons/" ..
+            Response.guild.id .. "/" .. Response.guild.icon .. ".png?size=256",
+        ImageSize = 42,
+        Buttons = {
+            {
+                Icon = "link",
+                Title = "Copy Discord Invite",
+                Callback = function()
+                    pcall(
+                        function()
+                            setclipboard("https://discord.gg/" .. InviteCode)
+                        end
+                    )
+                end
+            },
+            {
+                Icon = "refresh-cw",
+                Title = "Update Info",
+                Callback = function()
+                    xpcall(
+                        function()
+                             UpdatedResponse =
+                                game:GetService("HttpService"):JSONDecode(
+                                WindUI.Creator.Request(
+                                    {
+                                        Url = DiscordAPI,
+                                        Method = "GET"
+                                    }
+                                ).Body
+                            )
+
+                            if UpdatedResponse and UpdatedResponse.guild then
+                                DiscordInfo:SetDesc(
+                                    ' <font color="#52525b">•</font> Member Count: ' ..
+                                        tostring(UpdatedResponse.approximate_member_count) ..
+                                            '\n <font color="#16a34a">•</font> Online Count: ' ..
+                                                tostring(UpdatedResponse.approximate_presence_count)
+                                )
+                            end
+                        end,
+                        function(err)
+                            warn("err updating discord info: " .. tostring(err))
+                        end
+                    )
+                end
+            }
+        }
+    }
+
+    if Response.guild.banner then
+        ParagraphConfig.Thumbnail =
+            "https://cdn.discordapp.com/banners/" ..
+            Response.guild.id .. "/" .. Response.guild.banner .. ".png?size=256"
+        ParagraphConfig.ThumbnailSize = 80
+    end
+
+     DiscordInfo = Info:Paragraph(ParagraphConfig)
+else
+    Info:Paragraph(
+        {
+            Title = "Error when receiving information about the Discord server",
+            Desc = ErrorMessage or "Unknown error occurred",
+            Image = "triangle-alert",
+            ImageSize = 26,
+            Color = "Red"
+        }
+    )
+end
+
+ GameInfo =
+    Info:Paragraph(
+    {
+        Title = GradientText("PanScript", Color3.fromRGB(173, 216, 230), Color3.fromRGB(0, 0, 139)),
+        Desc = "Script made by @mallo",
+        Color = "White"
+    }
+)
+
+ Paragraph =
+    Info:Paragraph(
+    {
+        Title = "Version Beta!",
+        Desc = "More features Coming Soon! If you encounted some bugs join our discord to report it!",
+        Color = "White"
+    }
+)
+
+Window:Divider()
+
+ MainTab = Window:Tab({
+ Title = "MainFarm",
+ Icon = "house"
+})
+
+ Section = MainTab:Section({ 
+    Title = "Auto Mine",
+    Icon = "pickaxe",
+})
+
+-- ======= SERVICES & GLOBAL DEFAULTS =======
+ Players = game:GetService("Players")
+ RS = game:GetService("ReplicatedStorage")
+ Workspace = game:GetService("Workspace")
+ TweenService = game:GetService("TweenService")
+
+ Player = Players.LocalPlayer
+
+-- Global state defaults (safe)
+_G.AutoMine = _G.AutoMine or false
+-- don't force "Pebble" as the default (caused both dropdowns to start on Pebble)
+_G.MineTheseOres = _G.MineTheseOres or {}
+_G.TweenSpeed = _G.TweenSpeed or 67
+_G.FilterByArea = _G.FilterByArea or false
+_G.SelectedAreas = _G.SelectedAreas or {}
+_G.OreSkipper = _G.OreSkipper or false
+_G.NoRockFallback = _G.NoRockFallback or "Wait" -- "Wait" | "Switch Area" | "Disable Auto Mine"
+_G.MineMode = _G.MineMode or "Ores" -- "Ores" or "Rocks"
+
+-- safe remote lookup (best-effort)
+ MineRemote
+pcall(function()
+    if RS and RS:FindFirstChild("Shared") and RS.Shared:FindFirstChild("Packages") then
+         ok, v = pcall(function()
+            return RS.Shared.Packages.Knit.Services.ToolService.RF.ToolActivated
+        end)
+        if ok and v then MineRemote = v end
+    end
+end)
+
+-- ======= ROCK -> DROPS TABLE =======
+ RockDrops = {
+    Pebble = {"Stone","Sand Stone","Copper","Iron","Poopite"},
+    Rock = {"Sand Stone","Copper","Iron","Tin","Silver","Poopite","Bananite","Cardboardite","Mushroomite"},
+    Boulder = {"Copper","Iron","Tin","Silver","Gold","Platinum","Poopite","Bananite","Cardboardite","Mushroomite","Aite"},
+    ["Lucky Block"] = {"Fichillium","Fichilliugeromoriteite"},
+    ["Basalt Rock"] = {"Silver","Gold","Platinum","Cobalt","Titanium","Lapis Lazuli","Eye Ore"},
+    ["Basalt Core"] = {"Cobalt","Titanium","Lapis Lazuli","Quartz","Amethyst","Topaz","Diamond","Sapphire","Cuprite","Emerald","Eye Ore"},
+    ["Basalt Vein"] = {"Quartz","Amethyst","Topaz","Diamond","Sapphire","Cuprite","Emerald","Ruby","Rivalite","Uranium","Mythril","Eye Ore","Lightite"},
+    ["Volcanic Rock"] = {"Volcanic Rock","Topaz","Cuprite","Rivalite","Obsidian","Eye Ore","Fireite","Magmaite","Demonite","Fireite","Darkryte"},
+    ["Earth Crystal"] = {"Blue Crystal","Crimson Crystal","Green Crystal","Magenta Crystal","Orange Crystal","Rainbow Crystal","Arcane Crystal"},
+    ["Cyan Crystal"] = {"Blue Crystal","Crimson Crystal","Green Crystal","Magenta Crystal","Orange Crystal","Rainbow Crystal","Arcane Crystal"},
+    ["Crimson Crystal"] = {"Blue Crystal","Crimson Crystal","Green Crystal","Magenta Crystal","Orange Crystal","Rainbow Crystal","Arcane Crystal"},
+    ["Violet Crystal"] = {"Blue Crystal","Crimson Crystal","Green Crystal","Magenta Crystal","Orange Crystal","Rainbow Crystal","Arcane Crystal"},
+    ["Light Crystal"] = {"Blue Crystal","Crimson Crystal","Green Crystal","Magenta Crystal","Orange Crystal","Rainbow Crystal","Arcane Crystal"},
+}
+
+-- ======= UI LISTS =======
+ OreTypesList = {
+ "Stone","Sand Stone","Copper","Iron","Tin","Silver","Gold","Platinum","Cobalt","Titanium",
+ "Lapis Lazuli","Quartz","Amethyst","Topaz","Diamond","Sapphire","Cuprite","Emerald","Ruby",
+ "Rivalite","Uranium","Mythril","Lightite","Obsidian","Fireite","Magmaite","Demonite","Darkryte",
+ "Blue Crystal","Crimson Crystal","Green Crystal","Magenta Crystal","Orange Crystal","Rainbow Crystal","Arcane Crystal","Eye Ore","Poopite"
+}
+
+ RockTypesList = { "Pebble", "Rock", "Boulder", "Basalt Rock", "Basalt Core", "Basalt Vein", "Volcanic Rock", "Lucky Block", "Earth Crystal", "Cyan Crystal", "Crimson Crystal", "Violet Crystal", "Light Crystal" }
+
+-- ======= WORKSPACE AREAS =======
+ RocksFolder = Workspace:FindFirstChild("Rocks")
+if not RocksFolder then
+    warn("Workspace.Rocks not found - adjust zone names or ensure folder exists")
+end
+
+-- discover some legacy zone names (keeps backward compatibility)
+ RockZones = {}
+ function safeWaitFor(name)
+    if not RocksFolder then return nil end
+     ok, res = pcall(function() return RocksFolder:WaitForChild(name, 2) end)
+    if ok then return res end
+    return nil
+end
+do
+     z1 = safeWaitFor("Island1CaveStart")
+     z2 = safeWaitFor("Island1CaveMid")
+     z3 = safeWaitFor("Island1CaveDeep")
+    if z1 then table.insert(RockZones, z1) end
+    if z2 then table.insert(RockZones, z2) end
+    if z3 then table.insert(RockZones, z3) end
+end
+
+ function GetAllMiningAreas()
+     list = {}
+    if not RocksFolder then return list end
+    for _, child in ipairs(RocksFolder:GetChildren()) do
+        if child:IsA("Folder") or child:IsA("Model") then
+            table.insert(list, child.Name)
+        end
+    end
+    return list
+end
+
+ function GetActiveZones()
+    if _G.FilterByArea and _G.SelectedAreas and #_G.SelectedAreas > 0 and RocksFolder then
+         zones = {}
+        for _, name in ipairs(_G.SelectedAreas) do
+             z = RocksFolder:FindFirstChild(name)
+            if z then table.insert(zones, z) end
+        end
+        if #zones > 0 then return zones end
+    end
+    if #RockZones > 0 then return RockZones end
+    if RocksFolder then return RocksFolder:GetChildren() end
+    return {}
+end
+
+-- ======= UTILITIES =======
+ function strlower(s) if not s then return "" end return string.lower(tostring(s)) end
+
+ function tableContainsCI(tbl, val)
+    if not tbl or not val then return false end
+     v = strlower(val)
+    for _, x in ipairs(tbl) do
+        if strlower(x) == v then return true end
+    end
+    return false
+end
+
+ function GetBase(instance)
+    if not instance then return nil end
+    if instance:IsA("BasePart") then return instance end
+    if instance.PrimaryPart then return instance.PrimaryPart end
+    return instance:FindFirstChildWhichIsA("BasePart")
+end
+
+ function OreHealth(obj)
+    if not obj then return nil end
+     ok, hp = pcall(function() return obj:GetAttribute("Health") end)
+    if ok and type(hp) == "number" then return hp end
+     base = GetBase(obj)
+    if base then
+         ok2, hp2 = pcall(function() return base:GetAttribute("Health") end)
+        if ok2 and type(hp2) == "number" then return hp2 end
+         child = base:FindFirstChild("Health")
+        if child and child.Value ~= nil then return tonumber(child.Value) end
+    end
+     topchild = obj:FindFirstChild("Health")
+    if topchild and topchild.Value ~= nil then return tonumber(topchild.Value) end
+    return nil
+end
+
+-- ======= ROCK TYPE INFERENCE & MATCHING =======
+ function InferRockType(rock)
+    if not rock then return nil end
+     ok, at = pcall(function() return rock:GetAttribute("RockType") end)
+    if ok and at and RockDrops[tostring(at)] then return tostring(at) end
+     ok2, at2 = pcall(function() return rock:GetAttribute("Type") end)
+    if ok2 and at2 and RockDrops[tostring(at2)] then return tostring(at2) end
+    if RockDrops[rock.Name] then return rock.Name end
+     lname = strlower(rock.Name or "")
+    for k, _ in pairs(RockDrops) do
+        if string.find(lname, strlower(k), 1, true) then return k end
+    end
+    return nil
+end
+
+ function RockCanDropSelectedOre(rock)
+    if not rock then return false end
+    if not _G.MineTheseOres or #_G.MineTheseOres == 0 then return true end
+     rtype = InferRockType(rock)
+    if not rtype then return false end
+     possible = RockDrops[rtype]
+    if not possible then return false end
+    for _, sel in ipairs(_G.MineTheseOres) do
+        for _, p in ipairs(possible) do
+            if strlower(p) == strlower(sel) then return true end
+        end
+    end
+    return false
+end
+
+ function RockMatchesSelectedRockType(rock)
+    if not rock then return false end
+     selection = (_G.MineTheseOres and _G.MineTheseOres[1]) or nil
+    if not selection then return false end
+    if strlower(rock.Name or "") == strlower(selection) then return true end
+    if string.find(strlower(rock.Name or ""), strlower(selection), 1, true) then return true end
+     rt = InferRockType(rock)
+    if rt and strlower(rt) == strlower(selection) then return true end
+    return false
+end
+
+ function IsValidTarget(cand)
+    if not cand then return false end
+    if _G.MineMode == "Ores" then
+        return RockCanDropSelectedOre(cand)
+    else
+        return RockMatchesSelectedRockType(cand)
+    end
+end
+
+-- Best-effort detection inside a rock to see what it will drop right now
+ function DetectRockDrops(rock)
+    if not rock then return nil end
+     detected = {}
+     ok, dropsAttr = pcall(function() return rock:GetAttribute("Drops") end)
+    if ok and dropsAttr then
+        if type(dropsAttr) == "table" then
+            for _, v in ipairs(dropsAttr) do table.insert(detected, tostring(v)) end
+            return detected
+        elseif type(dropsAttr) == "string" then
+            table.insert(detected, tostring(dropsAttr)); return detected
+        end
+    end
+    -- look for children with ore-like names
+    for _, child in ipairs(rock:GetDescendants()) do
+        if child:IsA("BasePart") or child:IsA("Model") or child:IsA("Folder") then
+             cname = child.Name or ""
+            for _, oreName in ipairs(OreTypesList) do
+                if strlower(cname) == strlower(oreName) or string.find(strlower(cname), strlower(oreName), 1, true) then
+                    table.insert(detected, cname)
+                    break
+                end
+            end
+        end
+    end
+    if #detected == 0 then return nil end
+    return detected
+end
+
+-- ======= UI CREATION (updated locking per request) =======
+    -- Header section: master toggle + status
+     header = MainTab:Section({
+        Title = "Master",
+        Icon = "play"
+    })
+
+    -- keep reference so we can lock/unlock
+     masterToggle = header:Toggle({
+        Title = "Auto Mine (Master)",
+        Desc = "Enable / disable the whole auto-miner",
+        Value = _G.AutoMine,
+        Callback = function(state)
+            _G.AutoMine = state
+            pcall(function()
+                if WindUI then
+                    WindUI:Notify({
+                        Title = "Auto Mine",
+                        Content = state and "Enabled" or "Disabled",
+                        Duration = 1.5
+                    })
+                end
+            end)
+        end
+    })
+
+    --------------------------------------------------------------------------------
+    -- Per-mode remembered selections (so toggling mode restores each previous value)
+    --------------------------------------------------------------------------------
+    _G.LastOreSelection = _G.LastOreSelection or ( (_G.MineTheseOres and (_G.MineMode=="Ores" and _G.MineTheseOres[1]) ) or OreTypesList[1] )
+    _G.LastRockSelection = _G.LastRockSelection or ( (_G.MineTheseOres and (_G.MineMode=="Rocks" and _G.MineTheseOres[1]) ) or RockTypesList[1] )
+
+    -- Ensure initial MineTheseOres matches current mode (fixes "Pebble" vs "Ores" mismatch)
+    local function EnsureSelectionMatchesMode()
+        if _G.MineMode == "Ores" then
+            -- prefer remembered ore, otherwise pick first ore
+            _G.MineTheseOres = { _G.LastOreSelection or OreTypesList[1] }
+        else
+            _G.MineTheseOres = { _G.LastRockSelection or RockTypesList[1] }
+        end
+    end
+    EnsureSelectionMatchesMode()
+
+    --------------------------------------------------------------------------------
+    -- Selection & Mode section (mine type, ore/rock pickers)
+    --------------------------------------------------------------------------------
+    local selectionSection = MainTab:Section({
+        Title = "Selection & Mode",
+        Icon = "settings-2"
+    })
+
+    -- Mine type (keep interactive so user can switch back)
+    local mineTypeDropdown = selectionSection:Dropdown({
+        Title = "Mine Type",
+        Desc = "Choose what to mine",
+        Values = {"Ores", "Rocks"},
+        Value = _G.MineMode,
+        Multi = false,
+        AllowNone = false,
+        Callback = function(selected)
+            _G.MineMode = selected
+            -- persist per-mode selections
+            if selected == "Ores" then
+                _G.LastOreSelection = _G.LastOreSelection or OreTypesList[1]
+            else
+                _G.LastRockSelection = _G.LastRockSelection or RockTypesList[1]
+            end
+            EnsureSelectionMatchesMode()
+            UpdateSelectionLocks()
+            pcall(function() if WindUI then WindUI:Notify({Title="Mode", Content="Now: "..tostring(selected), Duration=1}) end end)
+        end
+    })
+
+    -- Helper: consistent locked notification (uses WindUI notify format)
+    local function NotifyLocked(controlName)
+        pcall(function()
+            if WindUI then
+                WindUI:Notify({
+                    Title = "Locked",
+                    Content = tostring(controlName) .. " is locked for the current Mine Type.",
+                    Duration = 2,
+                    Icon = "alert-triangle",
+                })
+            end
+        end)
+    end
+
+    -- We will hold the dropdown references so we can change Value/Desc/Locked
+    local oreDropdown = selectionSection:Dropdown({
+        Title = "Ore Drops",
+        Desc = "Used ONLY when Mine Type  Is Ores",
+        Values = OreTypesList,
+        Value = (_G.MineMode == "Ores") and (_G.LastOreSelection or (_G.MineTheseOres[1] or OreTypesList[1])) or ( _G.LastOreSelection or OreTypesList[1] ),
+        Multi = false,
+        AllowNone = false,
+        Callback = function(selected)
+            if _G.MineMode == "Ores" then
+                if type(selected) == "table" then _G.MineTheseOres = selected; _G.LastOreSelection = selected[1]
+                else _G.MineTheseOres = { selected }; _G.LastOreSelection = selected end
+            else
+                -- block interaction and notify (no logic change)
+                NotifyLocked("Ore Drops")
+                pcall(function() if oreDropdown and oreDropdown.SetValue then oreDropdown:SetValue(_G.LastOreSelection) end end)
+            end
+        end
+    })
+
+    local rockDropdown = selectionSection:Dropdown({
+        Title = "Rock Types",
+        Desc = "Used ONLY when Mine Type  Is Rocks",
+        Values = RockTypesList,
+        Value = (_G.MineMode == "Rocks") and (_G.LastRockSelection or (_G.MineTheseOres[1] or RockTypesList[1])) or ( _G.LastRockSelection or RockTypesList[1] ),
+        Multi = false,
+        AllowNone = false,
+        Callback = function(selected)
+            if _G.MineMode == "Rocks" then
+                if type(selected) == "table" then _G.MineTheseOres = selected; _G.LastRockSelection = selected[1]
+                else _G.MineTheseOres = { selected }; _G.LastRockSelection = selected end
+            else
+                -- block interaction and notify (no logic change)
+                NotifyLocked("Rock Types")
+                pcall(function() if rockDropdown and rockDropdown.SetValue then rockDropdown:SetValue(_G.LastRockSelection) end end)
+            end
+        end
+    })
+
+    -- Options section: toggles, area selection, fallback, speed (these remain unlocked unless specified)
+    local optsSection = MainTab:Section({
+        Title = "Options",
+        Icon = "settings"
+    })
+
+    -- areaDropdown reference (kept local in this pcall)
+    local areaDropdown = nil
+    local function BuildAreaDropdown()
+        local areas = GetAllMiningAreas()
+        pcall(function() if areaDropdown and areaDropdown.Destroy then areaDropdown:Destroy() end end)
+        areaDropdown = optsSection:Dropdown({
+            Title = "Select Mining Areas",
+            Desc = "Choose which area folders to mine in (multi-select)",
+            Values = areas,
+            Multi = true,
+            AllowNone = true,
+            Value = _G.SelectedAreas,
+            Callback = function(selected)
+                if type(selected) == "table" then _G.SelectedAreas = selected else _G.SelectedAreas = { selected } end
+            end
+        })
+    end
+
+    -- Refresh button (keep ref so we can unlock it)
+    local refreshButton = optsSection:Button({
+        Title = "Refresh Area List",
+        Desc = "Update available mining areas",
+        Callback = function()
+            BuildAreaDropdown()
+            pcall(function() if WindUI then WindUI:Notify({Title="Areas Updated", Content="Mining areas refreshed", Duration=2}) end end)
+        end
+    })
+
+       -- No rocks fallback dropdown (keep ref)
+    local fallbackDropdown = optsSection:Dropdown({
+        Title = "No Rocks Fallback",
+        Desc = "What to do when no rocks match selection",
+        Values = {"Wait","Switch Area","Disable Auto Mine"},
+        Value = _G.NoRockFallback,
+        Multi = false,
+        AllowNone = false,
+        Callback = function(sel) _G.NoRockFallback = sel end
+    })
+
+-- Tween speed slider (keep ref)
+    local tweenSlider = optsSection:Slider({
+        Title = "Tween Speed",
+        Desc = "Adjust how fast the player moves to the ore (Slower = Safer)",
+        Step = 1,
+        Value = { Min = 1, Max = 100, Default = _G.TweenSpeed },
+        Callback = function(value) _G.TweenSpeed = value end
+    })
+
+-- Function to update Locked state of selectors & toggles per your request
+    function UpdateSelectionLocks()
+        pcall(function()
+            if _G.MineMode == "Ores" then
+                -- Ores mode: rock selector must be disabled (and show locked desc)
+                if rockDropdown and type(rockDropdown) == "table" and rockDropdown.SetEnabled then
+                    pcall(function()
+                        rockDropdown:SetEnabled(false)
+                        if rockDropdown.SetDesc then rockDropdown:SetDesc("Locked — switch to Rocks mode to edit") end
+                        if rockDropdown.SetValue then rockDropdown:SetValue(_G.LastRockSelection or RockTypesList[1]) end
+                    end)
+                end
+
+                -- Enable ore dropdown
+                if oreDropdown and type(oreDropdown) == "table" and oreDropdown.SetEnabled then
+                    pcall(function()
+                        oreDropdown:SetEnabled(true)
+                        if oreDropdown.SetDesc then oreDropdown:SetDesc("Used ONLY when Mine Type = Ores") end
+                    end)
+                end
+
+                -- Buttons & options: oreSkipper should be enabled in Ores mode
+                if oreSkipperButton and type(oreSkipperButton) == "table" and oreSkipperButton.SetEnabled then pcall(function() oreSkipperButton:SetEnabled(true) end) end
+
+
+
+-- keep filter & area controls enabled (same as before)
+                if filterButton and type(filterButton) == "table" and filterButton.SetEnabled then pcall(function() filterButton:SetEnabled(true) end) end
+                if areaDropdown and type(areaDropdown) == "table" and areaDropdown.SetEnabled then pcall(function() areaDropdown:SetEnabled(true) end) end
+                if refreshButton and type(refreshButton) == "table" and refreshButton.SetEnabled then pcall(function() refreshButton:SetEnabled(true) end) end
+                if fallbackDropdown and type(fallbackDropdown) == "table" and fallbackDropdown.SetEnabled then pcall(function() fallbackDropdown:SetEnabled(true) end) end
+                if tweenSlider and type(tweenSlider) == "table" and tweenSlider.SetEnabled then pcall(function() tweenSlider:SetEnabled(true) end) end
+                if masterToggle and type(masterToggle) == "table" and masterToggle.SetEnabled then pcall(function() masterToggle:SetEnabled(true) end) end
+            else
+                -- Rocks mode: ore selector and oreSkipper should be disabled & show locked desc
+                if oreDropdown and type(oreDropdown) == "table" and oreDropdown.SetEnabled then
+                    pcall(function()
+                        oreDropdown:SetEnabled(false)
+                        if oreDropdown.SetDesc then oreDropdown:SetDesc("Locked — switch to Ores mode to edit") end
+                        if oreDropdown.SetValue then oreDropdown:SetValue(_G.LastOreSelection or OreTypesList[1]) end
+                    end)
+                end
+
+                if oreSkipperButton and type(oreSkipperButton) == "table" and oreSkipperButton.SetEnabled then
+                    pcall(function() oreSkipperButton:SetEnabled(false) end)
+                end
+
+                -- enable rock selector
+                if rockDropdown and type(rockDropdown) == "table" and rockDropdown.SetEnabled then
+                    pcall(function()
+                        rockDropdown:SetEnabled(true)
+                        if rockDropdown.SetDesc then rockDropdown:SetDesc("Used ONLY when Mine Type = Rocks") end
+                    end)
+                end
+
+                -- keep other controls enabled (same as before)
+                if filterButton and type(filterButton) == "table" and filterButton.SetEnabled then pcall(function() filterButton:SetEnabled(true) end) end
+                if areaDropdown and type(areaDropdown) == "table" and areaDropdown.SetEnabled then pcall(function() areaDropdown:SetEnabled(true) end) end
+                if refreshButton and type(refreshButton) == "table" and refreshButton.SetEnabled then pcall(function() refreshButton:SetEnabled(true) end) end
+                if fallbackDropdown and type(fallbackDropdown) == "table" and fallbackDropdown.SetEnabled then pcall(function() fallbackDropdown:SetEnabled(true) end) end
+                if tweenSlider and type(tweenSlider) == "table" and tweenSlider.SetEnabled then pcall(function() tweenSlider:SetEnabled(true) end) end
+                if masterToggle and type(masterToggle) == "table" and masterToggle.SetEnabled then pcall(function() masterToggle:SetEnabled(true) end) end
+            end
+        end)
+    end
+
+    -- Build initial pieces & ensure correct locked state
+    BuildAreaDropdown()
+    UpdateSelectionLocks()
+
+    -- expose a helper in case external code wants to force rebuild/refresh
+    function _G.ForceRebuildAutoMineUI()
+        BuildAreaDropdown()
+        UpdateSelectionLocks()
+    end
+
+-- ======= CHARACTER / MOVEMENT / FREEZE =======
+local Character = Player.Character or Player.CharacterAdded:Wait()
+local Root = Character:WaitForChild("HumanoidRootPart")
+
+Player.CharacterAdded:Connect(function()
+    task.wait(0.5)
+    Character = Player.Character
+    Root = Character:WaitForChild("HumanoidRootPart")
+end)
+
+local FreezeActive = false
+local function SetFreeze(state)
+    if FreezeActive == state then return end
+    FreezeActive = state
+    local char = Player.Character
+    if not char then return end
+    local hum = char:FindFirstChildWhichIsA("Humanoid")
+    local rootPart = char:FindFirstChild("HumanoidRootPart")
+    if hum and rootPart then
+        if state then
+            hum.WalkSpeed = 0
+            hum.JumpPower = 0
+            hum.AutoRotate = false
+        else
+            hum.WalkSpeed = 16
+            hum.JumpPower = 50
+            hum.AutoRotate = true
+        end
+    end
+end
+
+local function SetNoclip(state)
+    local char = Player.Character
+    if not char then return end
+    for _, part in ipairs(char:GetDescendants()) do
+        if part:IsA("BasePart") and part.CanCollide ~= nil then
+            part.CanCollide = not state
+        end
+    end
+end
+
+local LastTeleported = nil
+local TELEPORT_DISTANCE = 8
+
+local function MoveToTarget(target)
+    local base = GetBase(target)
+    if not base then return end
+    SetNoclip(true)
+    local offsetDistance = 5
+    local ok, dir = pcall(function() return (base.Position - Root.Position).Unit end)
+    local directionToOre = ok and dir or Vector3.new(0,0,1)
+    local perpendicular = Vector3.new(-directionToOre.Z, 0, directionToOre.X)
+    local sidePos = base.Position + perpendicular * offsetDistance
+
+    local rayParams = RaycastParams.new()
+    rayParams.FilterDescendantsInstances = {Character}
+    rayParams.FilterType = Enum.RaycastFilterType.Blacklist
+    local rayResult = workspace:Raycast(sidePos + Vector3.new(0,10,0), Vector3.new(0,-50,0), rayParams)
+    local finalY = sidePos.Y
+    if rayResult then finalY = rayResult.Position.Y + 3 end
+    local targetPos = Vector3.new(sidePos.X, finalY, sidePos.Z)
+    local goalCFrame = CFrame.new(targetPos, base.Position)
+    local distance = (Root.Position - targetPos).Magnitude
+    local speed = _G.TweenSpeed or 67
+    local tweenInfo = TweenInfo.new(math.max(0.01, distance / speed), Enum.EasingStyle.Linear)
+    local tween = TweenService:Create(Root, tweenInfo, {CFrame = goalCFrame})
+    tween:Play()
+    tween.Completed:Wait()
+    SetNoclip(false)
+end
+
+local function TeleportToOnce(target)
+    if not target then return end
+    if LastTeleported == target then return end
+    MoveToTarget(target)
+    LastTeleported = target
+end
+
+local function TryMineSafe()
+    if not MineRemote then
+        pcall(function()
+            local rr = RS.Shared and RS.Shared.Packages and RS.Shared.Packages.Knit and RS.Shared.Packages.Knit.Services and RS.Shared.Packages.Knit.Services.ToolService and RS.Shared.Packages.Knit.Services.ToolService.RF and RS.Shared.Packages.Knit.Services.ToolService.RF.ToolActivated
+            if rr then pcall(function() rr:InvokeServer("Pickaxe") end) end
+        end)
+        return
+    end
+    pcall(function() MineRemote:InvokeServer("Pickaxe") end)
+end
+
+-- ======= SEARCH (closest valid target) =======
+local LastNoRockNotify = 0
+local function GetClosestTarget()
+    local nearest, bestDist = nil, math.huge
+    for _, zone in ipairs(GetActiveZones()) do
+        if zone then
+            for _, cand in ipairs(zone:GetDescendants()) do
+                if cand and (cand:IsA("Model") or cand:IsA("BasePart")) then
+                    if IsValidTarget(cand) then
+                        local base = GetBase(cand)
+                        if base then
+                            local hp = OreHealth(cand)
+                            if hp and hp > 0 then
+                                local ok, pos = pcall(function() return Root.Position end)
+                                if ok and pos then
+                                    local d = (pos - base.Position).Magnitude
+                                    if d < bestDist then
+                                        bestDist = d
+                                        nearest = cand
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return nearest
+end
+
+-- ======= FALLBACK: Switch area helper =======
+local function SwitchToNextArea()
+    local all = GetAllMiningAreas()
+    if #all == 0 then return false end
+    local candidates = {}
+    for _, name in ipairs(all) do
+        local found = false
+        for _, s in ipairs(_G.SelectedAreas) do if strlower(s) == strlower(name) then found = true break end end
+        if not found then table.insert(candidates, name) end
+    end
+    local pick = nil
+    if #candidates > 0 then pick = candidates[math.random(1,#candidates)] else pick = all[math.random(1,#all)] end
+    _G.SelectedAreas = { pick }
+    _G.FilterByArea = true
+    pcall(function() if WindUI then WindUI:Notify({Title="Switched Area", Content="Now mining: "..tostring(pick), Duration=2}) end end)
+    return true
+end
+
+-- ======= MAIN LOOP =======
+task.spawn(function()
+    local CurrentTarget = nil
+    while true do
+        task.wait(0.12)
+        if not _G.AutoMine then
+            CurrentTarget = nil
+            LastTeleported = nil
+            SetFreeze(false)
+        else
+            if not (Character and Character.Parent and Root and Root.Parent) then
+                task.wait(0.4)
+                Character = Player.Character or Player.CharacterAdded:Wait()
+                Root = Character:FindFirstChild("HumanoidRootPart") or Root
+            end
+
+            -- validate current target
+            local hasValid = false
+            if CurrentTarget and CurrentTarget.Parent then
+                local hp = OreHealth(CurrentTarget)
+                if hp and hp > 0 and IsValidTarget(CurrentTarget) then
+                    hasValid = true
+                else
+                    CurrentTarget = nil
+                    LastTeleported = nil
+                end
+            end
+
+            if not hasValid then
+                CurrentTarget = GetClosestTarget()
+                LastTeleported = nil
+                if not CurrentTarget then
+                    local now = tick()
+                    if now - LastNoRockNotify > 3 then
+                        LastNoRockNotify = now
+                        pcall(function()
+                            if WindUI then
+                                WindUI:Notify({
+                                    Title = "No Rocks Found",
+                                    Content = "Selected targets are  not nearby or do not exist.",
+                                    Duration = 3,
+                                    Icon = "alert-triangle",
+                                })
+                            end
+                        end)
+                        if _G.NoRockFallback == "Switch Area" then
+                            SwitchToNextArea()
+                        elseif _G.NoRockFallback == "Disable Auto Mine" then
+                            _G.AutoMine = false
+                        end
+                    end
+                end
+            end
+
+            if CurrentTarget then
+                local base = GetBase(CurrentTarget)
+                if base then
+                    local skipRock = false
+                    if _G.OreSkipper and _G.MineMode == "Ores" then
+                        local drops = DetectRockDrops(CurrentTarget)
+                        if drops and type(drops) == "table" and #drops > 0 then
+                            local okmatch = false
+                            for _, d in ipairs(drops) do
+                                for _, sel in ipairs(_G.MineTheseOres) do
+                                    if strlower(d) == strlower(sel) or string.find(strlower(d), strlower(sel), 1, true) then
+                                        okmatch = true
+                                        break
+                                    end
+                                end
+                                if okmatch then break end
+                            end
+                            if not okmatch then
+                                skipRock = true
+                            end
+                        end
+                    end
+
+                    if skipRock then
+                        CurrentTarget = nil
+                        LastTeleported = nil
+                        SetFreeze(false)
+                        task.wait(0.05)
+                    else
+                        local ok, rootPos = pcall(function() return Root.Position end)
+                        if ok and rootPos then
+                            local dist = (rootPos - base.Position).Magnitude
+                            if (not LastTeleported) or dist > TELEPORT_DISTANCE then
+                                TeleportToOnce(CurrentTarget)
+                                task.wait(0.12)
+                            end
+                        else
+                            TeleportToOnce(CurrentTarget)
+                        end
+
+                        SetFreeze(true)
+                        TryMineSafe()
+                        task.wait(0.05)
+
+                        local hp = OreHealth(CurrentTarget)
+                        if not hp or hp <= 0 then
+                            CurrentTarget = nil
+                            LastTeleported = nil
+                            SetFreeze(false)
+                        end
+                    end
+                else
+                    CurrentTarget = nil
+                    LastTeleported = nil
+                    SetFreeze(false)
+                end
+            else
+                SetFreeze(false)
+            end
+        end
+    end
+end)
+
+-- End of script
+
+local ForgeTab = Window:Tab({
+ Title = "Forge",
+ Icon = "anvil"
+})
+
+-- Minimal Auto-Forge helper
+-- Paste into StarterPlayer > StarterPlayerScripts (LocalScript)
+-- This script ONLY adds:
+-- 1) A button that opens the Forge UI (Proximity -> StartForge)
+-- 2) A toggle that auto-completes the Melt minigame (client-side patch)
+-- 3) A toggle that auto-completes the Pour minigame (client-side patch)
+-- Nothing else.
+
+repeat task.wait() until game:IsLoaded()
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+
+local player = Players.LocalPlayer
+repeat task.wait() until player and player:FindFirstChild("PlayerGui")
+local playerGui = player:WaitForChild("PlayerGui")
+
+-- helpers to locate remotes / modules
+local function safeFindRF(path)
+local node = ReplicatedStorage
+for _, n in ipairs(path) do
+if not node then return nil end
+node = node:FindFirstChild(n)
+end
+return node
+end
+
+local function tryRequireControllerModule(name)
+-- tries common locations for ForgeController modules
+local controllers = ReplicatedStorage:FindFirstChild("Controllers")
+if controllers and controllers:FindFirstChild("ForgeController") then
+local mod = controllers.ForgeController:FindFirstChild(name)
+if mod and mod:IsA("ModuleScript") then
+local ok, m = pcall(require, mod)
+if ok and type(m) == "table" then return m, mod end
+end
+end
+local shared = ReplicatedStorage:FindFirstChild("Shared")
+if shared and shared:FindFirstChild("Controllers") and shared.Controllers:FindFirstChild("ForgeController") then
+local mod = shared.Controllers.ForgeController:FindFirstChild(name)
+if mod and mod:IsA("ModuleScript") then
+local ok, m = pcall(require, mod)
+if ok and type(m) == "table" then return m, mod end
+end
+end
+return nil, nil
+end
+
+-- patch management (allow restore)
+local patchedModules = {}
+
+local function safePatch(name, overrideFunc)
+local moduleTable, moduleScript = tryRequireControllerModule(name)
+if not moduleTable then
+return false, "module_not_found"
+end
+if not patchedModules[name] then
+patchedModules[name] = moduleTable.Start
+end
+moduleTable.Start = function(...)
+local ok, res = pcall(function() return overrideFunc(moduleTable) end)
+if not ok then
+warn("Patch override error for", name, res)
+-- fallback to original if available
+if patchedModules[name] then
+return patchedModulesname
+end
+return nil
+end
+return res
+end
+return true
+end
+
+local function restorePatch(name)
+local moduleTable, moduleScript = tryRequireControllerModule(name)
+if not moduleTable then return false end
+if patchedModules[name] then
+moduleTable.Start = patchedModules[name]
+patchedModules[name] = nil
+return true
+end
+return false
+end
+
+-- Auto-complete behaviours
+local function meltAutoComplete(_, controller, data)
+-- If a Melt minigame module Start expects to return (clientTime, inContact)
+-- we simulate a short animation then return a clientTime and inContact = true
+-- Also ensure any GUI is hidden quickly to avoid stuck visuals.
+local gui = playerGui:FindFirstChild("Forge")
+if gui and gui:FindFirstChild("MeltMinigame") then
+pcall(function()
+gui.MeltMinigame.Visible = true
+local bar = gui.MeltMinigame:FindFirstChild("Bar", true) or (gui.MeltMinigame.Bar and gui.MeltMinigame.Bar.Area)
+if bar and bar:IsA("Frame") then
+-- animate visual progress quickly
+pcall(function()
+TweenService:Create(bar, TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {Size = UDim2.fromScale(1, bar.Size.Y.Scale)}):Play()
+end)
+end
+task.wait(0.28)
+-- hide it to avoid stuck visuals
+gui.MeltMinigame.Visible = false
+end)
+else
+-- fallback small wait so server timing isn't thrown off
+task.wait(0.25)
+end
+local clientTime = (data and data.StartTime) or workspace:GetServerTimeNow()
+return clientTime, true
+end
+
+local function pourAutoComplete(_, controller, data)
+local gui = playerGui:FindFirstChild("Forge")
+if gui and gui:FindFirstChild("PourMinigame") then
+pcall(function()
+gui.PourMinigame.Visible = true
+local bar = gui.PourMinigame.Timer and gui.PourMinigame.Timer.Bar
+if bar and bar:IsA("Frame") then
+pcall(function()
+TweenService:Create(bar, TweenInfo.new(0.25, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {Size = UDim2.fromScale(1, bar.Size.Y.Scale)}):Play()
+end)
+end
+task.wait(0.28)
+gui.PourMinigame.Visible = false
+end)
+else
+task.wait(0.25)
+end
+local clientTime = (data and data.StartTime) or workspace:GetServerTimeNow()
+return clientTime
+end
+
+-- UI: Button - Open Forge UI
+ForgeTab:Button({
+Title = "Open Forge UI",
+Desc = "Invoke Proximity -> StartForge to open the Forge UI",
+Callback = function()
+local ProximityRF = safeFindRF({"Shared","Packages","Knit","Services","ProximityService","RF","Forge"}) or safeFindRF({"Controllers","ForgeController","RF","Forge"})
+local StartForgeRF = safeFindRF({"Shared","Packages","Knit","Services","ForgeService","RF","StartForge"}) or safeFindRF({"Controllers","ForgeController","RF","StartForge"})
+local forgeObject = workspace:FindFirstChild("Proximity") and workspace.Proximity:FindFirstChild("Forge")
+if not forgeObject then
+warn("[Forge Helper] forge object not found in workspace.Proximity")
+return
+end
+if ProximityRF then
+pcall(function() ProximityRF:InvokeServer(forgeObject) end)
+task.wait(0.12)
+end
+if StartForgeRF then
+pcall(function() StartForgeRF:InvokeServer(forgeObject) end)
+end
+print("[Forge Helper] Opened Forge UI (attempted).")
+end
+})
+
+ForgeTab:Divider()
+
+-- state for toggles
+local meltEnabled = false
+local pourEnabled = false
+
+-- UI: Toggle - Complete Melt
+ForgeTab:Toggle({
+Title = "Complete Melt",
+Desc = "When enabled, Melt minigame will auto-complete visually",
+Type = "Checkbox",
+Value = false,
+Callback = function(state)
+meltEnabled = state
+if meltEnabled then
+local ok, err = safePatch("MeltMinigame", meltAutoComplete)
+if not ok then
+warn("[Forge Helper] Unable to patch MeltMinigame:", err or "unknown")
+else
+print("[Forge Helper] Melt auto-complete ENABLED")
+end
+else
+if restorePatch("MeltMinigame") then
+print("[Forge Helper] Melt auto-complete DISABLED")
+else
+print("[Forge Helper] Melt patch not found/restored")
+end
+end
+end
+})
+
+-- UI: Toggle - Complete Pour
+ForgeTab:Toggle({
+Title = "Complete Pour",
+Desc = "When enabled, Pour minigame will auto-complete visually",
+Type = "Checkbox",
+Value = false,
+Callback = function(state)
+pourEnabled = state
+if pourEnabled then
+local ok, err = safePatch("PourMinigame", pourAutoComplete)
+if not ok then
+warn("[Forge Helper] Unable to patch PourMinigame:", err or "unknown")
+else
+print("[Forge Helper] Pour auto-complete ENABLED")
+end
+else
+if restorePatch("PourMinigame") then
+print("[Forge Helper] Pour auto-complete DISABLED")
+else
+print("[Forge Helper] Pour patch not found/restored")
+end
+end
+end
+})
+
+local AutoHammerEnabled = false
+
+ForgeTab:Toggle({
+Title = "Auto Hammer",
+Desc = "Automatically completes hammer minigame",
+Type = "Checkbox",
+Value = false,
+Callback = function(state)
+AutoHammerEnabled = state
+end
+})
+
+task.spawn(function()
+while true do
+task.wait(0.05)
+
+if not AutoHammerEnabled then
+continue
+end
+
+local forgeGui = playerGui:FindFirstChild("Forge")    
+if not forgeGui then    
+    continue    
+end    
+
+local hammerUI = forgeGui:FindFirstChild("HammerMinigame")    
+if not hammerUI or not hammerUI.Visible then    
+    continue    
+end    
+
+-- click detector hammer (the rock/anvil)    
+local debris = workspace:FindFirstChild("Debris")    
+if not debris then    
+    continue    
+end    
+
+for _, obj in ipairs(debris:GetChildren()) do    
+    if obj:FindFirstChild("ClickDetector") then    
+        pcall(function()    
+            fireclickdetector(obj.ClickDetector)    
+        end)    
+    end    
+end
+
+end
+
+end)
+
+-- VERY SIMPLE Auto-Perfect for Hammer minigame
+-- toggles a patch that makes each note auto-return true (perfect) at the correct timing
+local HammerPerfectEnabled = false
+local _orig_Hammer_CreateNote = nil
+
+ForgeTab:Toggle({
+    Title = "Auto-Perfect Hammer",
+    Desc = "Automatically 'perfect' each Hammer note (very simple)",
+    Type = "Checkbox",
+    Value = false,
+    Callback = function(state)
+        HammerPerfectEnabled = state
+
+        local moduleTable, moduleScript = tryRequireControllerModule("HammerMinigame")
+        if not moduleTable then
+            warn("[Forge Helper] HammerMinigame module not found.")
+            return
+        end
+
+        if HammerPerfectEnabled then
+            -- store original if not already stored
+            if not _orig_Hammer_CreateNote then
+                _orig_Hammer_CreateNote = moduleTable.CreateNote
+            end
+
+            -- override CreateNote: wait the note's lifetime->perfect timing, then return true
+            moduleTable.CreateNote = function(_, noteData, ...)
+                -- fallback lifetime if missing
+                local Lifetime = (noteData and noteData.Lifetime) or 1
+                -- decompiled module used Lifetime * 25/44 for the "perfect" moment
+                local perfectDelay = Lifetime * 25 / 44
+                task.wait(perfectDelay)
+                -- return true == hit (perfect). Keep it simple.
+                return true
+            end
+
+            print("[Forge Helper] Hammer auto-perfect ENABLED")
+        else
+            if _orig_Hammer_CreateNote and moduleTable then
+                moduleTable.CreateNote = _orig_Hammer_CreateNote
+                _orig_Hammer_CreateNote = nil
+                print("[Forge Helper] Hammer auto-perfect DISABLED")
+            else
+                print("[Forge Helper] Hammer auto-perfect: nothing to restore")
+            end
+        end
+    end
+})
+
+print("Forge Helper loaded.")
+
+local SellTab = Window:Tab({
+Title = "AutoSell",
+Icon = "circle-dollar-sign"
+})
+
+local Section = SellTab:Section({ 
+    Title = "Weapons",
+     Icon = "swords",
+})
+
+-- Auto Sell Weapons (fixed, drop-in)
+-- Uses game's WeaponSell controller patterns (Knit, Replica, ProximityService).
+-- Reference: your decompiled WeaponSell module. 1
+
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+local player = Players.LocalPlayer
+local lastStandingCFrame = nil
+
+-- Wait for shared modules
+local Shared = ReplicatedStorage:WaitForChild("Shared")
+local Packages = Shared:WaitForChild("Packages")
+local Knit = require(Packages:WaitForChild("Knit"))
+
+-- Data/utility modules (weapon price/type helpers)
+local EquipmentsModule = require(Shared:WaitForChild("Data"):WaitForChild("Equipments"))
+
+-- Knit services & controllers (discovered lazily)
+local function getController(name)
+local ok, c = pcall(function() return Knit.GetController(name) end)
+if ok then return c end
+return nil
+end
+
+local PlayerController = getController("PlayerController")
+local Replica = nil
+if PlayerController then
+pcall(function() Replica = PlayerController.Replica end)
+end
+
+local UIController = getController("UIController") -- not strictly required but kept for parity
+local ProximityService = pcall(function() return Knit.GetService("ProximityService") end) and Knit.GetService("ProximityService") or nil
+local InventoryService = pcall(function() return Knit.GetService("InventoryService") end) and Knit.GetService("InventoryService") or nil
+
+-- Dialogue remote (fallback)
+local DialogueRunCommandRemote = nil
+pcall(function()
+local sv = ReplicatedStorage:FindFirstChild("Shared") and ReplicatedStorage.Shared:FindFirstChild("Packages")
+if sv then
+local knitServices = sv.Knit and sv.Knit:FindFirstChild("Services") or nil
+-- better: follow the known path to the RunCommand remote if present
+end
+local svcRoot = ReplicatedStorage:FindFirstChild("Shared") and ReplicatedStorage.Shared:FindFirstChild("Packages") and ReplicatedStorage.Shared.Packages.Knit and ReplicatedStorage.Shared.Packages.Knit:FindFirstChild("Services")
+-- The safe path that other scripts used:
+local maybe = ReplicatedStorage:FindFirstChild("Shared") and ReplicatedStorage.Shared.Packages and ReplicatedStorage.Shared.Packages:FindFirstChild("Knit") and ReplicatedStorage.Shared.Packages.Knit:FindFirstChild("Services")
+if maybe and maybe:FindFirstChild("DialogueService") and maybe.DialogueService:FindFirstChild("RF") then
+DialogueRunCommandRemote = maybe.DialogueService.RF:FindFirstChild("RunCommand")
+end
+end)
+
+-- Config (edit these at runtime or via UI)
+_G.AutoSellWeaponsEnabled = false
+_G.UseSellAnywhereIfAvailable = false
+_G.ChunkSellLimit = 25
+_G.SellDelayMs = 80
+
+-- Weapon type list shown in dropdown
+local WEAPON_TYPE_OPTIONS = {
+"Dagger",
+"Falchion Knife",
+"Gladius Dagger",
+"Hook",
+"Falchion",
+"Gladius",
+"Cutlass",
+"Rapier",
+"Chaos",
+"Ironhand",
+"Boxing Gloves",
+"Relevator",
+"Uchigatana",
+"Tachi",
+"Crusader Sword",
+"Long Sword",
+"Double Battle Axe",
+"Scythe",
+"Reaper",
+"Hammer",
+"Great Sword",
+"Dragon Slayer",
+"Skull Crusher",
+"Comically Large Spoon"
+}
+
+-- IMPORTANT: default selection is EMPTY meaning "sell ALL weapons"
+_G.WeaponTypesToSell = {}  -- <<-- empty = sell all weapon types; pick some to restrict
+
+-- Helper: safe get Replica (keeps up-to-date)
+local function ensureReplica()
+if not Replica and Knit then
+local ok, ctrl = pcall(function() return Knit.GetController("PlayerController") end)
+if ok and ctrl then
+pcall(function() Replica = ctrl.Replica end)
+end
+end
+return Replica
+end
+
+-- Helper: get Proximity marbles HRP location used by WeaponSell module
+local function getProximityMarblesHRP()
+if workspace:FindFirstChild("Proximity") and workspace.Proximity:FindFirstChild("Marbles") then
+local marbles = workspace.Proximity.Marbles
+local hrp = marbles:FindFirstChild("HumanoidRootPart") or marbles.PrimaryPart
+return hrp
+end
+return nil
+end
+
+local function moveToDealerSafely()
+    local marblesHRP = getProximityMarblesHRP()
+    if not marblesHRP then return false end
+    if not player.Character then return false end
+
+    local hrp = player.Character:FindFirstChild("HumanoidRootPart")
+    if not hrp then return false end
+
+    local dist = (hrp.Position - marblesHRP.Position).Magnitude
+    if dist <= 6 then
+        return true -- already close
+    end
+
+    -- save position ONCE
+    lastStandingCFrame = hrp.CFrame
+
+    -- move near dealer (NOT inside)
+    tweenToCFrame(marblesHRP.CFrame * CFrame.new(0, 0, -4))
+    task.wait(0.4)
+
+    -- recheck distance
+    return (hrp.Position - marblesHRP.Position).Magnitude <= 8
+end
+
+-- Tween HRP to position (best-effort)
+local function stepTweenToCFrame(targetCFrame)
+if not player.Character then return false end
+local hrp = player.Character:FindFirstChild("HumanoidRootPart")
+if not hrp then return false end
+
+local dist = (hrp.Position - targetCFrame.Position).Magnitude
+if dist > 600 then return false end -- anti-teleport safety
+
+--  SPEED CONTROL (THIS is what you tune)
+local studsPerSecond = 10 -- slow / medium
+local totalTime = math.clamp(dist / studsPerSecond, 1.8, 7)
+
+local stepDistance = 6
+local steps = math.max(1, math.ceil(dist / stepDistance))
+local stepTime = totalTime / steps
+
+for i = 1, steps do
+if not hrp.Parent then return false end
+
+local alpha = i / steps 
+local currentCF = hrp.CFrame 
+local nextCF = currentCF:Lerp(targetCFrame, alpha) 
+
+local tween = TweenService:Create( 
+  hrp, 
+  TweenInfo.new(stepTime, Enum.EasingStyle.Linear), 
+  { CFrame = nextCF } 
+) 
+tween:Play() 
+tween.Completed:Wait() 
+
+task.wait(0.03)
+
+end
+
+return true
+
+end
+
+tweenToCFrame = stepTweenToCFrame
+
+-- Build basket GUID->true using Replica inventory and filters
+local function buildWeaponBasket()
+    local rep = ensureReplica()
+    if not rep or not rep.Data or not rep.Data.Inventory or not rep.Data.Inventory.Equipments then
+        return {}
+    end
+
+    local basket = {}
+    local count = 0
+
+    for _, item in pairs(rep.Data.Inventory.Equipments) do
+        if type(item) == "table" then
+            local guid = item.GUID or item.Name
+            local typ = item.Type or item.Name
+
+            local ok, kind = pcall(function()
+                return EquipmentsModule:GetItemType(typ)
+            end)
+
+            if ok and kind == "Weapon" then
+                -- weapon type filter
+                local passesType = true
+                if _G.WeaponTypesToSell and #_G.WeaponTypesToSell > 0 then
+                    passesType = false
+                    for _, want in ipairs(_G.WeaponTypesToSell) do
+                        if tostring(typ):lower():match(tostring(want):lower())
+                        or tostring(item.Name):lower():match(tostring(want):lower()) then
+                            passesType = true
+                            break
+                        end
+                    end
+                end
+
+                if passesType then
+                    -- price filter
+                    local priceOk = true
+                    if _G.SellBelowPrice and _G.SellBelowPrice > 0 then
+                        local okp, p = pcall(function()
+                            return EquipmentsModule:CalculatePrice(item)
+                        end)
+                        local price = (okp and p) or 0
+                        if price >= _G.SellBelowPrice then
+                            priceOk = false
+                        end
+                    end
+
+                    if priceOk and guid and not basket[guid] then
+                        basket[guid] = true
+                        count += 1
+                        if _G.ChunkSellLimit and count >= _G.ChunkSellLimit then
+                            break
+                        end
+                    end
+                end
+            end
+        end
+    end
+
+    return basket
+end
+
+-- Open the sell UI / dialogue using ProximityService:ForceDialogue (best match to WeaponSell module)
+local function openSellDialogue()
+local proxSvc = ProximityService
+local marblesHRP = getProximityMarblesHRP()
+if not proxSvc or not marblesHRP then
+return false, "no-proximity-or-marbles"
+end
+local marbles = marblesHRP.Parent
+local ok, res = pcall(function()
+-- as used in module: ProximityService:ForceDialogue(marbles, "SellConfirm")
+return proxSvc:ForceDialogue(marbles, "SellConfirm")
+end)
+return ok and res ~= false, (ok and res) or "force-failed"
+end
+
+-- Send the basket: prefer Dialogue RunCommand remote which handles SellConfirm. If UseSellAnywhereIfAvailable true and InventoryService.SellAnywhere exists, use it.
+local function sendSellBasket(basket)
+-- sanity
+if not (basket and next(basket)) then return false, "empty-basket" end
+-- try InventoryService:SellAnywhere if user enabled it AND service exists
+if _G.UseSellAnywhereIfAvailable and InventoryService and typeof(InventoryService.SellAnywhere) == "function" then
+local ok, res = pcall(function()
+-- server uses :await()  client pcall is best-effort. If it returns a promise-like result, we treat pcall success as okay.
+return InventoryService:SellAnywhere(basket, true)
+end)
+if ok then return true, "sold-via-inventoryservice" end
+end
+
+-- fallback to DialogueService RunCommand remote (common pattern)
+if DialogueRunCommandRemote and typeof(DialogueRunCommandRemote.InvokeServer) == "function" then
+local ok, res = pcall(function()
+return DialogueRunCommandRemote:InvokeServer("SellConfirm", { ["Basket"] = basket })
+end)
+if ok then
+return true, res
+else
+return false, res
+end
+end
+
+-- another fallback: try forcing Dialogue (so server shows UI) then rely on remote to accept
+return false, "no-sell-remote"
+
+end
+
+-- Close dialogue best-effort (mirrors weapon module behavior)
+local function closeDialogue()
+-- attempt to call Dialogue.RunCommand("Close") if available
+if DialogueRunCommandRemote and typeof(DialogueRunCommandRemote.InvokeServer) == "function" then
+pcall(function() DialogueRunCommandRemote:InvokeServer("Close") end)
+end
+end
+
+-- Main loop that performs auto-sell
+local autoCoroutine = nil
+local function startAutoSellLoop()
+if autoCoroutine then return end
+autoCoroutine = coroutine.create(function()
+while _G.AutoSellWeaponsEnabled do
+-- ensure replicas & services
+ensureReplica()
+local basket = buildWeaponBasket()
+
+if not basket or not next(basket) then
+    WindUI:Notify({
+        Title = "Auto Sell",
+        Content = "No weapons left to sell. Auto-sell stopped.",
+        Duration = 3,
+        Icon = "bird",
+    })
+
+    _G.AutoSellWeaponsEnabled = false
+    break
+end
+-- open dialogue (try ForceDialogue)
+-- SAVE where we are standing (once per cycle)
+if not lastStandingCFrame and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+lastStandingCFrame = player.Character.HumanoidRootPart.CFrame
+end
+-- STEP 1: Move to dealer FIRST
+local nearDealer = moveToDealerSafely()
+if not nearDealer then
+    task.wait(1)
+    continue
+end
+
+-- STEP 2: ONLY NOW open dialogue
+local opened, info = openSellDialogue()
+if opened then
+-- small safety wait to let UI register on server
+task.wait(0.18)
+if basket and next(basket) then
+local ok, res = sendSellBasket(basket)
+if ok then
+print("[AutoSellWeapons] Sold basket")
+
+-- RETURN to where we were standing
+if lastStandingCFrame then
+task.wait(0.15)
+tweenToCFrame(lastStandingCFrame, 1.6)
+lastStandingCFrame = nil
+end
+
+else
+warn("[AutoSellWeapons] Sell failed:", tostring(res))
+end
+task.wait((_G.SellDelayMs or 80)/1000 + 0.12)
+else
+-- nothing to sell
+task.wait(0.6)
+end
+
+-- close UI if open
+pcall(closeDialogue)
+else
+warn("[AutoSellWeapons] Could not open sell dialogue:", tostring(info))
+-- as a fallback, attempt to move close to marbles then try again next iteration
+local hrp = getProximityMarblesHRP()
+if hrp and player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+
+-- SAVE where we are standing
+if player.Character and player.Character:FindFirstChild("HumanoidRootPart") then
+lastStandingCFrame = player.Character.HumanoidRootPart.CFrame
+end
+
+-- MOVE safely to seller
+pcall(function()
+tweenToCFrame(hrp.CFrame * CFrame.new(0, 0, -2), 1.6)
+end)
+task.wait(0.35)
+end
+task.wait(0.9)
+end
+
+task.wait(0.2)
+end
+autoCoroutine = nil
+end)
+coroutine.resume(autoCoroutine)
+
+end
+
+-- Public start/stop (UI should toggle these)
+_G.StartAutoSellWeapons = function()
+_G.AutoSellWeaponsEnabled = true
+startAutoSellLoop()
+end
+_G.StopAutoSellWeapons = function()
+_G.AutoSellWeaponsEnabled = false
+end
+
+-- Example UI wiring (if you have 'MainTab' like previous scripts, otherwise ignore)
+-- IMPORTANT: the dropdown Value is empty {} so it won't preselect everything.
+if typeof(SellTab) == "table" then
+SellTab:Toggle({
+Title = "Auto Sell Weapons",
+Desc = "Automatically sells weapons matching filters.",
+Value = false,
+Callback = function(v)
+_G.AutoSellWeaponsEnabled = v
+if v then startAutoSellLoop() end
+end
+})
+
+SellTab:Dropdown({
+Title = "Weapon Types to Sell",
+Desc = "Leave empty to sell all weapons. Pick types to restrict.",
+Values = WEAPON_TYPE_OPTIONS,
+Multi = true,
+Value = {}, -- <<-- EMPTY by default (not preselected)
+Callback = function(selected)
+_G.WeaponTypesToSell = selected or {}
+end
+})
+
+SellTab:Input({
+Title = "Sell below price (0 = disabled)",
+Desc = "Only sell items with price < value. 0 disables.",
+Value = tostring(_G.SellBelowPrice or 0),
+Type = "Input",
+Placeholder = "0",
+Callback = function(s)
+local n = tonumber(s)
+_G.SellBelowPrice = (n and n >= 0) and n or 0
+end
+})
+
+SellTab:Slider({
+Title = "Chunk limit",
+Desc = "Max items per sell request",
+Value = {Min = 5, Max = 100, Default = _G.ChunkSellLimit},
+Step = 1,
+Callback = function(v) _G.ChunkSellLimit = v end
+})
+
+SellTab:Slider({
+Title = "Sell delay (ms)",
+Desc = "Delay between sells",
+Value = {Min = 20, Max = 1000, Default = _G.SellDelayMs},
+Step = 5,
+Callback = function(v) _G.SellDelayMs = v end
+})
+
+end
+
+print("AutoSellWeapons script loaded. Default: weapon types dropdown empty (no preselect). Use _G.StartAutoSellWeapons() or toggle UI.")
+
+local Section = SellTab:Section({ 
+    Title = "Ores",
+    Icon = "stone",
+})
+
+-- Auto Sell + Proximity interaction (WindUI) --
+-- Assumes WindUI is available and the same Knit/Service structure you posted earlier.
+
+local Players = game:GetService("Players")
+local RS = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local HttpService = game:GetService("HttpService")
+
+local Player = Players.LocalPlayer
+
+-- wait for Knit-like structure (may vary by game; adjust if needed)
+local Shared = RS:WaitForChild("Shared")
+local Packages = Shared:WaitForChild("Packages")
+local Knit = Packages:WaitForChild("Knit")
+local ServicesFolder = Knit:WaitForChild("Services")
+
+-- Remote references (pcall-safe later)
+local DialogueServiceRemote = nil -- RunCommand InvokeServer
+local DialogueEventRemote = nil   -- RE.DialogueEvent:FireServer
+local ProximityDialogueRemote = nil -- ProximityService.RF.Dialogue:InvokeServer
+
+-- try to fetch remotes if present (wrap in pcall to avoid hard errors)
+pcall(function()
+    local DialogueService = ServicesFolder:WaitForChild("DialogueService")
+    if DialogueService and DialogueService:FindFirstChild("RF") and DialogueService.RF:FindFirstChild("RunCommand") then
+        DialogueServiceRemote = DialogueService.RF.RunCommand
+    end
+    if DialogueService and DialogueService:FindFirstChild("RE") and DialogueService.RE:FindFirstChild("DialogueEvent") then
+        DialogueEventRemote = DialogueService.RE.DialogueEvent
+    end
+end)
+
+pcall(function()
+    local ProxService = ServicesFolder:WaitForChild("ProximityService")
+    if ProxService and ProxService:FindFirstChild("RF") and ProxService.RF:FindFirstChild("Dialogue") then
+        ProximityDialogueRemote = ProxService.RF.Dialogue
+    end
+end)
+
+-- Full item list (from you)
+local ItemList = {
+    "Aite","Amethyst","Arcane Crystal ore","Bananite","Blue Crystal ore","Boneite","Cardboardite","Cobalt",
+    "Copper","Crimson Crystal ore","Cuprite","Dark Boneite","Darkryte","Demonite","Diamond","Emerald","Eye Ore",
+    "Fichillium","Fireite","Gold","Green Crystal ore","Iron","Lapis Lazuli","Lightite","Magmaite","Magenta Crystal ore",
+    "Mushroomite","Mythril","Obsidian","Orange Crystal ore","Platinum","Poopite","Quartz","Rainbow Crystal ore",
+    "Rivalite","Ruby","Sand Stone","Sapphire","Silver","Slimite","Stone","Tin","Titanium","Topaz","Uranium","Volcanic Rock"
+}
+
+-- Config / globals
+_G.AutoSellEnabled = false
+_G.ItemsToSell = {}          -- set by dropdown (array of names)
+_G.SellAmount = 1            -- set by Input (how many of each to sell per command)
+_G.SellDelayMs = 70          -- slider (milliseconds) default 70 ms
+local TweenTime = 1.0        -- seconds to tween to target (adjust if desired)
+local CloseDistance = 10     -- studs considered "close enough" to Greedy Cey
+
+-- Dropdown: select ores to sell
+local Dropdown = SellTab:Dropdown({
+    Title = "Select Items to Sell",
+    Desc = "Choose items to autosell",
+    Values = ItemList,
+    Multi = true,
+    Value = {},
+    Callback = function(selected)
+        _G.ItemsToSell = selected
+        print("Selected Items:", HttpService:JSONEncode(selected))
+    end
+})
+
+-- Input: how many items to sell (per item per sell command)
+local Input = SellTab:Input({
+    Title = "Amount to sell (per item)",
+    Desc = "How many items to sell (You must have the exact amount of item in your inventory for it to work!)",
+    Value = "1",
+    InputIcon = "bird",
+    Type = "Input",
+    Placeholder = "Enter number (e.g. 1)",
+    Callback = function(input)
+        local n = tonumber(input)
+        if n and n > 0 then
+            _G.SellAmount = math.floor(n)
+        else
+            _G.SellAmount = 1
+        end
+        print("SellAmount set to:", _G.SellAmount)
+    end
+})
+
+-- Slider: sell delay in milliseconds
+local Slider = SellTab:Slider({
+    Title = "Sell delay (ms)",
+    Desc = "Delay between each individual sell (milliseconds).",
+    Step = 1,
+    Value = {
+        Min = 20,
+        Max = 120,
+        Default = 70,
+    },
+    Callback = function(value)
+        _G.SellDelayMs = value
+        print("SellDelayMs:", value)
+    end
+})
+
+-- Helper: safe invoke wrapper
+local function safeInvoke(remote, ...)
+    if not remote then
+        return false, "remote-not-found"
+    end
+    local ok, res = pcall(function() return remote:InvokeServer() end)
+    return ok, res
+end
+
+local function safeFire(remote, ...)
+    if not remote then
+        return false, "remote-not-found"
+    end
+    local ok, res = pcall(function() return remote:FireServer() end)
+    return ok, res
+end
+
+-- Helper: tween-teleport to a part (returns true on success)
+local function tweenToPart(part)
+    if not part or not part:IsA("BasePart") then return false end
+    local char = Player.Character
+    if not char then return false end
+    local hrp = char:FindFirstChild("HumanoidRootPart")
+    if not hrp then return false end
+
+    local targetCFrame = part.CFrame + Vector3.new(0, 5, 0)
+    local tweenInfo = TweenInfo.new(TweenTime, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+    local tween = TweenService:Create(hrp, tweenInfo, {CFrame = targetCFrame})
+    local completed = false
+    tween:Play()
+    tween.Completed:Connect(function() completed = true end)
+
+    -- small timeout guard (in case tween gets stuck)
+    local start = tick()
+    while not completed do
+        if tick() - start > TweenTime + 1.5 then break end
+        task.wait(0.05)
+    end
+    return true
+end
+
+-- The main auto-sell loop (runs in spawn whenever toggle is enabled)
+-- Robust, fully-Lua-compatible Auto-Sell (copy/paste to replace your auto-sell section)
+
+local autoSellCoroutine = nil
+
+-- Config (tweak if needed)
+local TWEEN_SECONDS       = 6
+local OPEN_RETRIES        = 6
+local OPEN_RETRY_WAIT     = 0.6
+local SELL_RETRIES        = 4
+local SELL_RETRY_WAIT     = 0.2
+local CLOSE_RETRIES       = 4
+local CLOSE_RETRY_WAIT    = 0.25
+local POST_OPEN_WAIT      = 0.45
+local POST_SELL_WAIT      = 0.2
+local TARGET_POS          = Vector3.new(-111.74201965332031, 37.50104522705078, -38.12355422973633)
+
+-- Helper: discover Proximity Dialogue remote (safe)
+local function getProximityDialogueRemote()
+    if ProximityDialogueRemote then return ProximityDialogueRemote end
+    local ok, remote = pcall(function()
+        return RS and RS.Shared and RS.Shared.Packages and RS.Shared.Packages.Knit and
+               RS.Shared.Packages.Knit.Services and RS.Shared.Packages.Knit.Services.ProximityService and
+               RS.Shared.Packages.Knit.Services.ProximityService.RF and
+               RS.Shared.Packages.Knit.Services.ProximityService.RF.Dialogue
+    end)
+    if ok and remote then
+        ProximityDialogueRemote = remote
+        return remote
+    end
+    return nil
+end
+
+-- Helper: discover Dialogue RunCommand remote (safe)
+local function getDialogueRunCommand()
+    if DialogueServiceRemote then return DialogueServiceRemote end
+    local ok, remote = pcall(function()
+        return RS and RS.Shared and RS.Shared.Packages and RS.Shared.Packages.Knit and
+               RS.Shared.Packages.Knit.Services and RS.Shared.Packages.Knit.Services.DialogueService and
+               RS.Shared.Packages.Knit.Services.DialogueService.RF and
+               RS.Shared.Packages.Knit.Services.DialogueService.RF.RunCommand
+    end)
+    if ok and remote then
+        DialogueServiceRemote = remote
+        return remote
+    end
+    return nil
+end
+
+-- Helper: discover Dialogue Event remote (safe)
+local function getDialogueEventRemote()
+    if DialogueEventRemote then return DialogueEventRemote end
+    local ok, remote = pcall(function()
+        return RS and RS.Shared and RS.Shared.Packages and RS.Shared.Packages.Knit and
+               RS.Shared.Packages.Knit.Services and RS.Shared.Packages.Knit.Services.DialogueService and
+               RS.Shared.Packages.Knit.Services.DialogueService.RE and
+               RS.Shared.Packages.Knit.Services.DialogueService.RE.DialogueEvent
+    end)
+    if ok and remote then
+        DialogueEventRemote = remote
+        return remote
+    end
+    return nil
+end
+
+-- Open dialogue with retries
+local function openDialogueWithRetries()
+    local proxRemote = getProximityDialogueRemote()
+    if not proxRemote then
+        warn("[AutoSell] Proximity Dialogue remote not found.")
+        return false, "no-prox-remote"
+    end
+    local part = workspace.Proximity and workspace.Proximity["Greedy Cey"]
+    if not part then
+        warn("[AutoSell] workspace.Proximity['Greedy Cey'] not found.")
+        return false, "no-part"
+    end
+
+    for i = 1, OPEN_RETRIES do
+        if not _G.AutoSellEnabled then
+            return false, "stopped"
+        end
+        local ok, res = pcall(function()
+            return proxRemote:InvokeServer(part)
+        end)
+        if ok and res ~= false then
+            return true, res
+        end
+        task.wait(OPEN_RETRY_WAIT)
+    end
+    return false, "timeout"
+end
+
+-- Sell one item with retries
+local function doSellWithRetries(itemName, amount)
+    local runRemote = getDialogueRunCommand()
+    if not runRemote then
+        warn("[AutoSell] RunCommand remote not found; cannot sell:", itemName)
+        return false, "no-run-remote"
+    end
+
+    local basket = {}
+    basket[itemName] = amount or 1
+
+    for i = 1, SELL_RETRIES do
+        if not _G.AutoSellEnabled then
+            return false, "stopped"
+        end
+        local ok, res = pcall(function()
+            return runRemote:InvokeServer("SellConfirm", { ["Basket"] = basket })
+        end)
+        if ok then
+            return true, res
+        end
+        task.wait(SELL_RETRY_WAIT)
+    end
+    return false, "sell-failed"
+end
+
+-- Close dialogue with retries (tries event then RunCommand fallback)
+local function closeDialogueWithRetries()
+    local ev = getDialogueEventRemote()
+    if ev then
+        for i = 1, CLOSE_RETRIES do
+            if not _G.AutoSellEnabled then
+                return false, "stopped"
+            end
+            local ok, _ = pcall(function()
+                ev:FireServer("Closed")
+            end)
+            if ok then
+                return true
+            end
+            task.wait(CLOSE_RETRY_WAIT)
+        end
+    end
+
+    local run = getDialogueRunCommand()
+    if run then
+        for i = 1, CLOSE_RETRIES do
+            if not _G.AutoSellEnabled then
+                return false, "stopped"
+            end
+            local ok, _ = pcall(function()
+                run:InvokeServer("Close")
+            end)
+            if ok then
+                return true
+            end
+            task.wait(CLOSE_RETRY_WAIT)
+        end
+    end
+
+    return false, "close-failed"
+end
+
+-- Tween player to target position (safe)
+local function tweenToTarget()
+    local char = Player.Character
+    local hrp = char and char:FindFirstChild("HumanoidRootPart")
+    if not hrp then return false end
+    local ok, _ = pcall(function()
+        local tweenInfo = TweenInfo.new(TWEEN_SECONDS, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+        local tween = TweenService:Create(hrp, tweenInfo, { CFrame = CFrame.new(TARGET_POS) })
+        tween:Play()
+        tween.Completed:Wait()
+    end)
+    return ok
+end
+
+-- Ensure player near the target (wait guard)
+local function ensurePlayerAtTarget(waitTimeout)
+    local char = Player.Character
+    local hrp = char and char:FindFirstChild("HumanoidRootPart")
+    if not hrp then return false end
+    local start = tick()
+    while _G.AutoSellEnabled and (hrp.Position - TARGET_POS).Magnitude > 3 do
+        if waitTimeout and tick() - start > waitTimeout then break end
+        task.wait(0.15)
+    end
+    return true
+end
+
+-- Tween return position after selling
+local RETURN_POS = Vector3.new(-142.3625030517578, 26.04539680480957, 64.44760131835938)
+local RETURN_TWEEN_TIME = 2.0 -- seconds
+
+-- Main start function (drop-in updated version)
+local function startAutoSellLoop()
+  if autoSellCoroutine then return end
+  autoSellCoroutine = coroutine.create(function()
+    while _G.AutoSellEnabled do
+      -- 1) tween to target (Greedy Cey)
+      pcall(function() tweenToTarget() end)
+      task.wait(POST_OPEN_WAIT)
+
+      -- 2) open dialogue
+      local opened, openRes = openDialogueWithRetries()
+      if opened then
+        -- ensure near target
+        ensurePlayerAtTarget(2.5)
+        task.wait(POST_OPEN_WAIT)
+
+        -- 3) sell each selected item
+        if _G.ItemsToSell and #_G.ItemsToSell > 0 then
+          for _, itemName in ipairs(_G.ItemsToSell) do
+            if not _G.AutoSellEnabled then break end
+            local ok, res = doSellWithRetries(itemName, _G.SellAmount or 1)
+            if not ok then
+              warn("[AutoSell] failed to sell", itemName, res)
+            end
+            task.wait(((_G.SellDelayMs or 70) / 1000) + POST_SELL_WAIT)
+          end
+        else
+          task.wait(0.5)
+        end
+
+        -- 4) close dialogue + tween back to return position
+        local ev = getDialogueEventRemote()
+        local run = getDialogueRunCommand()
+
+        -- Attempt to close via Event first
+        if ev then
+          pcall(function() ev:FireServer("Closed") end)
+        end
+
+        -- Fallback: RunCommand close
+        if run then
+          pcall(function() run:InvokeServer("Close") end)
+        end
+
+        -- Small delay to ensure dialogue closed
+        task.wait(0.25)
+
+        -- Tween player back to RETURN_POS
+        local char = Player.Character
+        local hrp = char and char:FindFirstChild("HumanoidRootPart")
+        if hrp then
+          local tweenInfo = TweenInfo.new(RETURN_TWEEN_TIME, Enum.EasingStyle.Quad, Enum.EasingDirection.Out)
+          local tween = TweenService:Create(hrp, tweenInfo, {CFrame = CFrame.new(RETURN_POS)})
+          tween:Play()
+          tween.Completed:Wait()
+        end
+
+        task.wait(0.6)
+      else
+        -- failed to open dialogue: backoff before retry
+        warn("[AutoSell] openDialogueWithRetries failed:", openRes)
+        task.wait(0.8)
+      end
+
+      -- cooldown before next loop
+      task.wait(0.2)
+    end
+
+    autoSellCoroutine = nil
+  end)
+  coroutine.resume(autoSellCoroutine)
+end
+
+-- Expose start function globally for toggle code to call
+_G.StartAutoSellLoop = startAutoSellLoop
+
+SellTab:Toggle({
+    Title = "Auto Sell",
+    Desc = "Automatically Sells Your Chosen Items!",
+    Value = false,
+    Callback = function(state)
+        _G.AutoSellEnabled = state
+        print("AutoSellEnabled:", state)
+        if state then
+            startAutoSellLoop()
+        end
+    end
+})
+
+-- Quick notification helper (WindUI typically has notify; if not, fallback to print)
+local function notify(msg)
+    if Window and Window.Notify then
+        pcall(function() Window:Notify(msg) end)
+    else
+        print(msg)
+    end
+end
+
+notify("Auto Sell UI loaded. Select ores, set amount and delay, then toggle Auto Sell.")
+
+local MobsTab = Window:Tab({
+ Title = "Mobs",
+ Icon = "sword"
+})
+
+-- Services
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+local UserInputService = game:GetService("UserInputService")
+local workspace = game:GetService("Workspace")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+
+
+-- Paths
+local ENEMIES_MODULE_PATH = ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Data"):WaitForChild("Enemies")
+local LIVING_FOLDER = workspace:WaitForChild("Living")
+local ASSETS_MOBS = nil
+pcall(function() ASSETS_MOBS = ReplicatedStorage:WaitForChild("Assets"):WaitForChild("Mobs") end)
+
+-- Tool RPCs (best-effort)
+local ToolRF = nil
+pcall(function()
+    ToolRF = ReplicatedStorage.Shared.Packages.Knit.Services.ToolService.RF
+end)
+local Enemies = require(ENEMIES_MODULE_PATH)
+
+-- ==========================
+-- Config & State
+-- ==========================
+local selectedNames = {}
+local targetType = "Nearest"
+local autoAttackEnabled = false
+
+local attackInterval = 0.14
+local maxTargetDistance = 200
+local AutoKite = true
+local HoldBlockMode = false
+
+local attackLoopThread = nil
+local stopAttackLoop = false
+
+local followTask = nil
+local activeTween = nil
+local currentFollowTarget = nil
+local followConnection = nil
+local LAST_GOAL_CF = nil
+local GOAL_EPSILON = 0.30
+
+-- Movement tuning
+local MAX_GLIDE_DIST = 240
+local GLIDE_SPEED = 14
+local GLIDE_STEP_MIN = 0.08
+local GLIDE_STEP_MAX = 1.2
+local GLIDE_CLOSE_THRESHOLD = 0.9
+
+-- User controls
+local AUTO_KILL_HEIGHT = 1.6
+local AUTO_KILL_DISTANCE = 3.5
+local AUTO_KITE_POSITION = "Behind"
+
+local TWEEN_SPEED_FACTOR = 1.3
+
+local NoClipDuringFollow = true
+local noclipActive = false
+local noclipOriginalStates = {}
+local noclipConnection = nil
+
+-- Helpers
+local function playerCharacter() return LocalPlayer and LocalPlayer.Character end
+local function playerHRP()
+    local c = playerCharacter()
+    return c and (c:FindFirstChild("HumanoidRootPart") or c.PrimaryPart)
+end
+local function playerHumanoid()
+    local c = playerCharacter()
+    return c and c:FindFirstChildOfClass("Humanoid")
+end
+
+local function safeInvokeToolActivated()
+    if ToolRF and ToolRF.ToolActivated then
+        pcall(function() ToolRF.ToolActivated:InvokeServer("Weapon") end)
+    end
+end
+
+local function parseSliderValue(v, fallback)
+    fallback = fallback or 0
+    if type(v) == "number" then return v end
+    if type(v) == "table" then
+        if v.Value and type(v.Value) == "number" then return v.Value end
+        if v.Default and type(v.Default) == "number" then return v.Default end
+        for _,val in pairs(v) do
+            if type(val) == "number" then return val end
+        end
+    end
+    return fallback
+end
+
+-- ==========================
+-- Target selection
+-- ==========================
+local function findBestTarget()
+    local hrp = playerHRP()
+    if not hrp then return nil end
+    local best, bestMetric, bestHum = nil, math.huge, nil
+    for _, mob in pairs(LIVING_FOLDER:GetChildren()) do
+        if mob and mob:IsA("Model") then
+            local allowed = (next(selectedNames) == nil)
+            if not allowed then
+                for k,_ in pairs(selectedNames) do
+                    if mob.Name and mob.Name:lower():find(k:lower()) then allowed = true; break end
+                end
+            end
+            if not allowed then continue end
+
+            local mHRP = mob:FindFirstChild("HumanoidRootPart") or mob.PrimaryPart
+            local hum = mob:FindFirstChildOfClass("Humanoid")
+            if mHRP and hum and hum.Health and hum.Health > 0 then
+                local dist = (mHRP.Position - hrp.Position).Magnitude
+                if dist <= maxTargetDistance then
+                    if targetType == "Nearest" then
+                        if dist < bestMetric then best = mob; bestMetric = dist; bestHum = hum end
+                    else
+                        if not best or hum.Health < bestHum.Health then best = mob; bestHum = hum; bestMetric = hum.Health end
+                    end
+                end
+            end
+        end
+    end
+    return best
+end
+
+-- ==========================
+-- NoClip helpers
+-- ==========================
+local function enableNoClipForCharacter()
+    if noclipActive then return end
+    local char = playerCharacter()
+    if not char then return end
+
+    noclipOriginalStates = {}
+
+    -- Store original states once
+    for _, part in ipairs(char:GetDescendants()) do
+        if part:IsA("BasePart") then
+            noclipOriginalStates[part] = part.CanCollide
+        end
+    end
+
+    noclipConnection = RunService.Heartbeat:Connect(function()
+        local c = playerCharacter()
+        if not c then return end
+
+        for _, part in ipairs(c:GetDescendants()) do
+            if part:IsA("BasePart") then
+                part.CanCollide = false
+            end
+        end
+    end)
+
+    noclipActive = true
+end
+
+local function disableNoClipForCharacter()
+    if not noclipActive then return end
+
+    if noclipConnection then
+        noclipConnection:Disconnect()
+        noclipConnection = nil
+    end
+
+    for part, original in pairs(noclipOriginalStates) do
+        if part and part.Parent then
+            pcall(function()
+                part.CanCollide = original
+            end)
+        end
+    end
+
+    noclipOriginalStates = {}
+    noclipActive = false
+end
+
+-- ==========================
+-- Movement: goal CFrame builder
+-- ==========================
+local function computeGoalCFrameForTarget(targetHRP, distance, height)
+    distance = math.max(0, tonumber(distance) or 0)
+
+    -- respect distance toggle
+    if not UseDistanceOffset then
+        distance = 0
+    end
+
+    local lookVec = targetHRP.CFrame.LookVector
+
+    if AUTO_KITE_POSITION == "InFront" then
+        local pos = targetHRP.Position + lookVec * distance + Vector3.new(0, height, 0)
+        return CFrame.new(pos, targetHRP.Position)
+    else
+        -- Behind (default / fallback)
+        local pos = targetHRP.Position - lookVec * distance + Vector3.new(0, height, 0)
+        return CFrame.new(pos, targetHRP.Position)
+    end
+end
+
+-- Cancel active tween/follow safely
+local function stopActiveTween()
+    if activeTween then
+        pcall(function()
+            if typeof(activeTween.Cancel) == "function" then
+                activeTween:Cancel()
+            end
+        end)
+        activeTween = nil
+    end
+
+    if followConnection then
+        pcall(function() followConnection:Disconnect() end)
+        followConnection = nil
+    end
+
+    LAST_GOAL_CF = nil
+end
+
+-- Immediately apply/apply a follow "nudge" using current slider values
+local function applyFollowTweenNow()
+    if not currentFollowTarget or not currentFollowTarget.Parent then return end
+    local hrp = playerHRP()
+    local tHRP = currentFollowTarget:FindFirstChild("HumanoidRootPart") or currentFollowTarget.PrimaryPart
+    if not hrp or not tHRP then return end
+
+    local goalCFrame = computeGoalCFrameForTarget(tHRP, AUTO_KILL_DISTANCE, AUTO_KILL_HEIGHT)
+    local dist = (goalCFrame.Position - hrp.Position).Magnitude
+    if dist > MAX_GLIDE_DIST then return end
+
+    -- immediate nudge (soft, not teleport)
+    local immediateAlpha = 0.6
+    pcall(function()
+        hrp.CFrame = hrp.CFrame:Lerp(goalCFrame, math.clamp(immediateAlpha, 0, 1))
+    end)
+
+    LAST_GOAL_CF = goalCFrame
+end
+
+-- Lightweight restart: stop active follow and apply immediate nudge
+local function restartFollowIfActive()
+    stopActiveTween()
+    applyFollowTweenNow()
+end
+
+-- startFollow / stopFollow using Heartbeat-based smoothing (no Completed:Wait)
+function startFollow(target, distanceOverride)
+    if not target or not target.Parent then return end
+    local distance = tonumber(distanceOverride) or AUTO_KILL_DISTANCE
+
+    if followTask then
+        pcall(function() task.cancel(followTask) end)
+        followTask = nil
+    end
+    if followConnection then
+        pcall(function() followConnection:Disconnect() end)
+        followConnection = nil
+    end
+
+    currentFollowTarget = target
+
+    followTask = task.spawn(function()
+        if NoClipDuringFollow then enableNoClipForCharacter() end
+
+        LAST_GOAL_CF = nil
+
+        -- Safety: local reference to allow reconnections/cleanup
+        followConnection = RunService.Heartbeat:Connect(function(dt)
+            if not autoAttackEnabled or not AutoKite or not currentFollowTarget or not currentFollowTarget.Parent then
+                if followConnection then pcall(function() followConnection:Disconnect() end) end
+                followConnection = nil
+                return
+            end
+
+            local hrp = playerHRP()
+            local tHRP = currentFollowTarget and (currentFollowTarget:FindFirstChild("HumanoidRootPart") or currentFollowTarget.PrimaryPart)
+            local targetHum = currentFollowTarget and currentFollowTarget:FindFirstChildOfClass("Humanoid")
+
+            if not hrp or not tHRP or not targetHum or (targetHum and targetHum.Health <= 0) then
+                if followConnection then pcall(function() followConnection:Disconnect() end) end
+                followConnection = nil
+                return
+            end
+
+            local goalCFrame = computeGoalCFrameForTarget(tHRP, distance, AUTO_KILL_HEIGHT)
+            local dist = (goalCFrame.Position - hrp.Position).Magnitude
+
+            if dist > MAX_GLIDE_DIST then
+                return
+            end
+
+            -- If goal hasn't moved enough, we still apply small smoothing; otherwise update LAST_GOAL_CF
+            if LAST_GOAL_CF then
+                if (LAST_GOAL_CF.Position - goalCFrame.Position).Magnitude >= GOAL_EPSILON then
+                    LAST_GOAL_CF = goalCFrame
+                end
+            else
+                LAST_GOAL_CF = goalCFrame
+            end
+
+            -- smoothing factor: fraction of remaining distance to move this frame
+            -- speed scales with GLIDE_SPEED; TWEEN_SPEED_FACTOR acts as a slowdown factor (lower = faster)
+            local denom = math.max(0.05, tonumber(TWEEN_SPEED_FACTOR) or 1)
+            local speed = GLIDE_SPEED / denom
+            local fraction = 0
+            if dist > 0.001 then
+                fraction = math.clamp((speed * dt) / math.max(dist, 0.01), 0, 0.45)
+            else
+                fraction = 0.45
+            end
+
+            -- close-enough snapping to avoid micro-lerps
+            if dist <= GLIDE_CLOSE_THRESHOLD then
+                pcall(function() hrp.CFrame = goalCFrame end)
+                return
+            end
+
+            local ok, err = pcall(function()
+                hrp.CFrame = hrp.CFrame:Lerp(goalCFrame, fraction)
+            end)
+            if not ok then
+                -- disconnect on repeated error to prevent spam
+                if followConnection then pcall(function() followConnection:Disconnect() end) end
+                followConnection = nil
+            end
+        end)
+
+        -- keep a light loop so followTask exits when conditions change
+        while autoAttackEnabled and AutoKite and currentFollowTarget and currentFollowTarget.Parent
+          and (currentFollowTarget:FindFirstChildOfClass("Humanoid") and currentFollowTarget:FindFirstChildOfClass("Humanoid").Health > 0) do
+            if not followConnection then break end
+            task.wait(0.12)
+        end
+
+        if NoClipDuringFollow then disableNoClipForCharacter() end
+        stopActiveTween()
+        followTask = nil
+        currentFollowTarget = nil
+    end)
+end
+
+function stopFollow()
+    if followTask then
+        pcall(function() task.cancel(followTask) end)
+        followTask = nil
+    end
+    if followConnection then
+        pcall(function() followConnection:Disconnect() end)
+        followConnection = nil
+    end
+    if NoClipDuringFollow then disableNoClipForCharacter() end
+    stopActiveTween()
+    currentFollowTarget = nil
+end
+
+-- ==========================
+-- Attack loop
+-- ==========================
+local function startAttackLoop()
+    if attackLoopThread then return end
+    stopAttackLoop = false
+    attackLoopThread = task.spawn(function()
+        while autoAttackEnabled and not stopAttackLoop do
+            local target = findBestTarget()
+            if not target then task.wait(0.28); continue end
+
+            local hrp = playerHRP()
+            local hum = playerHumanoid()
+            if not hrp or not hum then task.wait(0.4); continue end
+
+            local mHRP = target:FindFirstChild("HumanoidRootPart") or target.PrimaryPart
+            local targetHum = target:FindFirstChildOfClass("Humanoid")
+            if not mHRP or not targetHum then task.wait(0.2); continue end
+
+            if AutoKite then
+                startFollow(target, AUTO_KILL_DISTANCE)
+            end
+
+            while autoAttackEnabled and targetHum and targetHum.Health > 0 and target.Parent and not stopAttackLoop do
+                if not hrp or not hum then break end
+
+                if AutoKite and (not followTask or currentFollowTarget ~= target) then
+                    startFollow(target, AUTO_KILL_DISTANCE)
+                end
+
+                safeInvokeToolActivated()
+                task.wait(math.max(0.02, tonumber(attackInterval) or 0.14))
+            end
+
+            stopFollow()
+            task.wait(0.18)
+        end
+        attackLoopThread = nil
+    end)
+end
+
+local function stopAttackLoopFn()
+    stopAttackLoop = true
+    if attackLoopThread then
+        pcall(function() task.cancel(attackLoopThread) end)
+        attackLoopThread = nil
+    end
+    stopFollow()
+end
+
+-- mob dropdown
+local dropdownValues = {}
+for key, v in pairs(Enemies) do
+    local icon = nil
+    pcall(function()
+        if ASSETS_MOBS and ASSETS_MOBS:FindFirstChild(key) then
+            local asset = ASSETS_MOBS:FindFirstChild(key)
+            if asset:FindFirstChild("Icon") and asset.Icon:IsA("StringValue") then
+                icon = asset.Icon.Value
+            elseif asset:FindFirstChild("Icon") and type(asset.Icon.Value) == "string" then
+                icon = asset.Icon.Value
+            end
+        end
+    end)
+    if not icon and type(v) == "table" and v.Slot and v.Slot.Icon then icon = v.Slot.Icon end
+    table.insert(dropdownValues, { Title = key, Icon = icon or "bird" })
+end
+table.sort(dropdownValues, function(a,b) return a.Title < b.Title end)
+
+MobsTab:Dropdown({
+    Title = "Select Mobs",
+    Desc = "Select mobs to farm",
+    Values = dropdownValues,
+    Value = {},
+    Multi = true,
+    Callback = function(option)
+        if type(option) == "table" then
+            selectedNames = {}
+            for _,v in ipairs(option) do
+                if type(v) == "table" and v.Title then selectedNames[v.Title] = true end
+            end
+            local list = {}
+            for n,_ in pairs(selectedNames) do table.insert(list, n) end
+            print("Selected mobs (multi):", #list>0 and table.concat(list,", ") or "none")
+        else
+            local name = option and option.Title or tostring(option)
+            if selectedNames[name] then selectedNames[name] = nil; print("Deselected:", name)
+            else selectedNames[name] = true; print("Selected:", name) end
+        end
+    end
+})
+
+MobsTab:Dropdown({
+    Title = "Target Type",
+    Desc = "Nearest / LowestHealth",
+    Values = { {Title="Nearest"}, {Title="LowestHealth"} },
+    Value = {Title="Nearest"},
+    Callback = function(option) targetType = option.Title print("TargetType ->", targetType) end
+})
+
+MobsTab:Divider()
+
+MobsTab:Toggle({
+Title = "Auto Attack",
+Desc = "Enable/disable automatic attack" ,
+Icon = "bird",
+Type = "Checkbox",
+Value = false,
+Callback = function(state)
+    -- prevent start if no mobs selected
+    if state and next(selectedNames) == nil then
+        WindUI:Notify({
+            Title = "Auto Attack Blocked",
+            Content = "You must select at least one mob before enabling Auto Attack.",
+            Duration = 3,
+            Icon = "bird",
+        })
+
+        -- force toggle back off
+        autoAttackEnabled = false
+        stopAttackLoopFn()
+        stopFollow()
+        return
+    end
+
+    autoAttackEnabled = state
+    print("AutoAttack:", state)
+
+    if state then
+        startAttackLoop()
+    else
+        stopAttackLoopFn()
+        stopFollow()
+    end
+end
+})
+
+MobsTab:Toggle({
+    Title = "AutoFollow  Mobs",
+    Desc = "will go to mobs.",
+    Icon = "house",
+    Type = "Checkbox",
+    Value = AutoKite,
+    Callback = function(state) AutoKite = state print("AutoKite:", state) end
+})
+
+MobsTab:Toggle({
+    Title = "NoClip During Follow",
+    Desc = "When ON, temporarily disables collisions while the script is moving you (avoid getting stuck).",
+    Value = NoClipDuringFollow,
+    Callback = function(state) NoClipDuringFollow = state; print("NoClipDuringFollow:", state) end
+})
+
+MobsTab:Dropdown({
+    Title = "Auto Follow Position",
+    Desc = "Where to position relative to the mob",
+    Values = {
+        {Title = "Behind"},
+        {Title = "InFront"}
+    },
+    Value = { Title = AUTO_KITE_POSITION },
+    Callback = function(option)
+        local val = option and option.Title or tostring(option)
+        AUTO_KITE_POSITION = val
+
+        -- restart any active follow so changes apply instantly
+        restartFollowIfActive()
+
+        print("AutoKitePosition ->", AUTO_KITE_POSITION)
+    end
+})
+
+MobsTab:Slider({
+    Title = "How Far (Distance Offset)",
+    Desc = "0 = no offset, higher = further from mob",
+    Value = {
+        Min = 0,
+        Max = 14,
+        Default = AUTO_KILL_DISTANCE
+    },
+    Step = 0.1,
+    Callback = function(v)
+        AUTO_KILL_DISTANCE = tonumber(v) or 0
+        restartFollowIfActive()
+        print("AUTO_KILL_DISTANCE:", AUTO_KILL_DISTANCE)
+    end
+})
+
+MobsTab:Slider({
+    Title = "Movement Speed",
+    Desc = "Lower = Faster, Higher = Slower (Recommend to set it to 0.20!)",
+    Value = { Min = 0.05, Max = 2.5, Default = 0.20 },
+    Step = 0.05,
+    Callback = function(v)
+        TWEEN_SPEED_FACTOR = tonumber(v)
+        print("Tween Time =", TWEEN_SPEED_FACTOR)
+    end
+})
+
+-- Attack interval slider (fast default)
+MobsTab:Slider({
+    Title = "Attack Interval",
+    Desc = "Delay between swings. Set low for very fast attacks.",
+    Value = { Min = 0.02, Max = 0.6, Default = attackInterval },
+    Step = 0.01,
+    Callback = function(v)
+        local n = parseSliderValue(v, attackInterval)
+        attackInterval = math.clamp(tonumber(n) or attackInterval, 0.02, 2.0)
+        print("AttackInterval:", attackInterval)
+    end
+})
+
+-- Quick stop key
+UserInputService.InputBegan:Connect(function(inp, gp)
+    if gp then return end
+    if inp.KeyCode == Enum.KeyCode.F8 then
+        autoAttackEnabled = false
+        stopAttackLoopFn()
+        stopFollow()
+        warn("Auto routines halted (F8).")
+    end
+end)
+
+-- Cleanup when player leaves
+LocalPlayer.AncestryChanged:Connect(function()
+    if not LocalPlayer:IsDescendantOf(game) then
+        stopAttackLoopFn()
+        stopFollow()
+    end
+end)
+
+MiscTab = Window:Tab({
+ Title = "Misc",
+ Icon = "cog"
+})
+
+local ThemeDropdown =
+    MiscTab:Dropdown(
+    {
+        Title = "Select Theme",
+        Values = themeNames,
+        Value = "Volcano",
+        Callback = function(selectedTheme)
+            WindUI:SetTheme(selectedTheme)
+        end
+    }
+)
+
+MiscTab:Toggle(
+    {
+        Title = "Transparent Window",
+        Desc = "Toggle UI transparency on or off",
+        Default = false, -- starts off
+        Callback = function(state)
+            if state then
+                Window:ToggleTransparency(true)
+            else
+                Window:ToggleTransparency(false)
+            end
+        end
+    }
+)
